@@ -1,6 +1,4 @@
 import { useEffect, useRef, useState, useCallback } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./App.css";
 import backsoundUrl from "./assets/backsound.mp3";
 
@@ -41,8 +39,6 @@ import page4_4 from "./assets/4/4. USERNAME.webp";
 import page4_5 from "./assets/4/5. ART.webp";
 import page4_6 from "./assets/4/6. TERIMAKASIH.webp";
 import page4_7 from "./assets/4/7. DAUN BG.webp";
-
-gsap.registerPlugin(ScrollTrigger);
 
 function App() {
 	const containerRef = useRef<HTMLDivElement>(null);
@@ -185,11 +181,9 @@ function App() {
 		};
 
 		const animateToPage = (pageIndex: number) => {
-			gsap.to(container, {
-				y: `-${pageIndex * 100}vh`,
-				duration: 1.2, // Slightly slower animation
-				ease: "power2.inOut",
-			});
+			if (container) {
+				container.style.transform = `translateY(-${pageIndex * 100}vh)`;
+			}
 		};
 
 		// Add event listeners
@@ -202,11 +196,21 @@ function App() {
 		});
 
 		// Initial animations
-		gsap.fromTo(
-			".page-content",
-			{ opacity: 0, y: 50 },
-			{ opacity: 1, y: 0, duration: 1, stagger: 0.2, delay: 0.5 },
-		);
+		const pageContents = document.querySelectorAll(".page-content");
+		pageContents.forEach((content, index) => {
+			const element = content as HTMLElement;
+			element.style.opacity = "0";
+			element.style.transform = "translateY(50px)";
+			element.style.transition = "opacity 1s ease, transform 1s ease";
+
+			setTimeout(
+				() => {
+					element.style.opacity = "1";
+					element.style.transform = "translateY(0)";
+				},
+				500 + index * 200,
+			);
+		});
 
 		// Try to initialize audio after a short delay
 		const audioTimeout = setTimeout(() => {
