@@ -94,18 +94,120 @@
 }
 
 /* Page 1 - Welcome */
-.page-1 {
-}
+/* .page-1 {} */
 
 /* Page 2 - Our Story */
-.page-2 {
-}
+/* .page-2 {} */
 
 /* Page 3 - Wedding Details */
-.page-3 {}
+/* .page-3 {} */
 
 /* Page 4 - RSVP */
-.page-4 {
+/* .page-4 {} */
+
+/* Gift Card Styles */
+.layer-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.layer.gift-panel {
+	position: absolute;
+	pointer-events: auto;
+}
+
+.gift-card {
+	background: rgba(255, 255, 255, 0.95);
+	backdrop-filter: blur(10px);
+	border-radius: 15px;
+	padding: 20px;
+	margin-bottom: 15px;
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+.gift-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.gift-card h4 {
+	margin: 0 0 15px 0;
+	color: #2c3e50;
+	font-size: 18px;
+	font-weight: 600;
+	text-align: center;
+	border-bottom: 2px solid #e8f4f8;
+	padding-bottom: 10px;
+}
+
+.gift-row {
+	margin-bottom: 12px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.gift-label {
+	font-size: 14px;
+	font-weight: 500;
+	color: #34495e;
+	margin-bottom: 5px;
+}
+
+.gift-field {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	background: #f8f9fa;
+	border-radius: 8px;
+	padding: 10px;
+	border: 1px solid #e9ecef;
+}
+
+.gift-field code {
+	flex: 1;
+	background: transparent;
+	border: none;
+	font-family: "Courier New", monospace;
+	font-size: 16px;
+	font-weight: 600;
+	color: #2c3e50;
+	letter-spacing: 1px;
+}
+
+.copy-btn {
+	background: #3498db;
+	color: white;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 6px;
+	font-size: 12px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	white-space: nowrap;
+}
+
+.copy-btn:hover {
+	background: #2980b9;
+	transform: scale(1.05);
+}
+
+.copy-btn:active {
+	transform: scale(0.98);
 }
 
 /* Mobile Responsive - FORCED MOBILE VIEW */
@@ -144,8 +246,7 @@
 	width: 100% !important;
 }
 
-.page {
-}
+/* .page {} */
 
 /* Force Mobile View - Additional CSS */
 /* Ensure container behaves as mobile regardless of screen size */
@@ -176,17 +277,52 @@
 		right: 15px !important;
 		gap: 10px !important;
 	}
-	
+
 	.nav-dot {
 		width: 10px !important;
 		height: 10px !important;
 	}
-	
+
 	.audio-control {
 		width: 45px !important;
 		height: 45px !important;
 		top: 15px !important;
 		right: 15px !important;
 		font-size: 18px !important;
+	}
+
+	/* Gift Card Mobile Responsive */
+	/* .layer.gift-panel {} */
+
+	.gift-card {
+		padding: 15px !important;
+		margin-bottom: 10px !important;
+	}
+
+	.gift-card h4 {
+		font-size: 16px !important;
+		margin-bottom: 12px !important;
+	}
+
+	.gift-label {
+		font-size: 12px !important;
+	}
+
+	.gift-field {
+		padding: 8px !important;
+		gap: 8px !important;
+	}
+
+	.gift-field code {
+		font-size: 14px !important;
+		min-width: 0 !important;
+		overflow: hidden !important;
+		text-overflow: ellipsis !important;
+	}
+
+	.copy-btn {
+		padding: 6px 12px !important;
+		font-size: 11px !important;
+		min-width: 60px !important;
 	}
 }

@@ -41,6 +41,9 @@ import page4_6 from "./assets/4/6. TERIMAKASIH.webp";
 import page4_7 from "./assets/4/7. DAUN BG.webp";
 
 function App() {
+	// Get name from URL query parameters
+	const urlParams = new URLSearchParams(window.location.search);
+	const name = urlParams.get("name") || "Guest";
 	const containerRef = useRef<HTMLDivElement>(null);
 	const page1Ref = useRef<HTMLDivElement>(null);
 	const page2Ref = useRef<HTMLDivElement>(null);
@@ -50,6 +53,24 @@ function App() {
 	const [currentPage, setCurrentPage] = useState(0);
 	const [isAudioPlaying, setIsAudioPlaying] = useState(true);
 	const [audioInitialized, setAudioInitialized] = useState(false);
+
+	// Copy to clipboard function
+	const copyToClipboard = async (text: string) => {
+		try {
+			await navigator.clipboard.writeText(text);
+			// You could add a toast notification here if needed
+			console.log("Copied to clipboard:", text);
+		} catch (err) {
+			console.error("Failed to copy: ", err);
+			// Fallback for older browsers
+			const textArea = document.createElement("textarea");
+			textArea.value = text;
+			document.body.appendChild(textArea);
+			textArea.select();
+			document.execCommand("copy");
+			document.body.removeChild(textArea);
+		}
+	};
 
 	// Audio control functions
 	const initializeAudio = useCallback(async () => {
@@ -271,7 +292,11 @@ function App() {
 						<img src={page1_4} alt="Date" className="absolute z-10" />
 						<img src={page1_6} alt="Character" className="absolute" />
 						<img src={page1_5} alt="Name" className="absolute" />
-						<img src={page1_3} alt="Stamp" className="absolute" />
+						<div className="inset-0">
+							<img src={page1_3} alt="Stamp" className="absolute" />
+							{/* TODO */}
+							<div className="absolute z-20 bottom-0">{name}</div>
+						</div>
 						<img src={page1_2} alt="Foreground" className="absolute" />
 					</div>
 				</div>
@@ -316,6 +341,70 @@ function App() {
 						<img src={page4_7} alt="" className="absolute" />
 						<img src={page4_6} alt="" className="absolute" />
 						<img src={page4_1} alt="" className="absolute" />
+
+						{/* Gift card */}
+						<div className="layer-wrap" style={{ zIndex: 9 }}>
+							<div className="layer gift-panel">
+								<div className="gift-card">
+									<h4>Abi Manyu Fajrul Falah</h4>
+									<div className="gift-row">
+										<span className="gift-label">BCA:</span>
+										<div className="gift-field">
+											<code id="abi-rek">1131466027</code>
+											<button
+												type="button"
+												className="copy-btn"
+												onClick={() => copyToClipboard("1131466027")}
+											>
+												Salin
+											</button>
+										</div>
+									</div>
+									<div className="gift-row">
+										<span className="gift-label">Gopay / ShopeePay / Ovo:</span>
+										<div className="gift-field">
+											<code id="abi-ewallet">089667427861</code>
+											<button
+												type="button"
+												className="copy-btn"
+												onClick={() => copyToClipboard("089667427861")}
+											>
+												Salin
+											</button>
+										</div>
+									</div>
+								</div>
+								<div className="gift-card">
+									<h4>Erica Surya</h4>
+									<div className="gift-row">
+										<span className="gift-label">BCA:</span>
+										<div className="gift-field">
+											<code id="erica-rek">1132423401</code>
+											<button
+												type="button"
+												className="copy-btn"
+												onClick={() => copyToClipboard("1132423401")}
+											>
+												Salin
+											</button>
+										</div>
+									</div>
+									<div className="gift-row">
+										<span className="gift-label">Gopay / ShopeePay / Ovo:</span>
+										<div className="gift-field">
+											<code id="erica-ewallet">085784622423</code>
+											<button
+												type="button"
+												className="copy-btn"
+												onClick={() => copyToClipboard("085784622423")}
+											>
+												Salin
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
