@@ -238,7 +238,7 @@ function App() {
 	}, [currentPage, initializeAudio, audioInitialized]);
 
 	return (
-		<div className="app">
+		<div className="app mobile-forced">
 			{/* Audio element */}
 			<audio
 				ref={audioRef}
@@ -260,25 +260,6 @@ function App() {
 				{isAudioPlaying ? "🔊" : "🔇"}
 			</button>
 
-			{/* Navigation dots */}
-			<div className="navigation">
-				{[0, 1, 2, 3].map((index) => (
-					<button
-						key={index}
-						type="button"
-						className={`nav-dot ${currentPage === index ? "active" : ""}`}
-						onClick={() => {
-							setCurrentPage(index);
-							gsap.to(containerRef.current, {
-								y: `-${index * 100}vh`,
-								duration: 1.2,
-								ease: "power2.inOut",
-							});
-						}}
-					/>
-				))}
-			</div>
-
 			<div ref={containerRef} className="pages-container">
 				{/* Page 1: Welcome */}
 				<div ref={page1Ref} className="page page-1">
@@ -288,11 +269,6 @@ function App() {
 						<img src={page1_5} alt="Name" className="absolute" />
 						<img src={page1_3} alt="Stamp" className="absolute" />
 						<img src={page1_2} alt="Foreground" className="absolute" />
-					</div>
-					<div className="decorative-elements">
-						<div className="heart-1">♥</div>
-						<div className="heart-2">♥</div>
-						<div className="heart-3">♥</div>
 					</div>
 				</div>
 

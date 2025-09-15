@@ -6,6 +6,14 @@
 	background-size: cover;
 }
 
+/* Mobile-forced specific styles */
+.app.mobile-forced {
+	max-width: 480px !important;
+	margin: 0 auto !important;
+	box-sizing: border-box !important;
+	width: 100% !important;
+}
+
 .pages-container {
 	height: 400vh; /* 4 pages × 100vh each */
 	width: 100%;
@@ -30,18 +38,6 @@
 	position: relative;
 	width: 100%;
 	height: 100%;
-}
-
-/* Navigation */
-.navigation {
-	position: fixed;
-	right: 20px;
-	top: 50%;
-	transform: translateY(-50%);
-	z-index: 1000;
-	display: flex;
-	flex-direction: column;
-	gap: 15px;
 }
 
 .nav-dot {
@@ -90,330 +86,98 @@
 
 /* Page 1 - Welcome */
 .page-1 {
-	position: relative;
-}
-
-.character-image {
-	width: 100%;
-	height: auto;
-}
-
-.main-title {
-	font-size: clamp(3rem, 12vw, 6rem);
-	color: var(--primary-color);
-	margin-bottom: 20px;
-	font-weight: 300;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.subtitle {
-	font-size: clamp(1.2rem, 4vw, 2rem);
-	color: var(--secondary-color);
-	margin-bottom: 40px;
-	font-style: italic;
-}
-
-.date-location {
-	margin: 40px 0;
-}
-
-.date-location p {
-	font-size: clamp(1.1rem, 3vw, 1.5rem);
-	color: var(--text-dark);
-	margin: 10px 0;
-	font-weight: 500;
-}
-
-.cta-button {
-	background: var(--primary-color);
-	color: var(--text-light);
-	border: none;
-	padding: 15px 30px;
-	font-size: 1.1rem;
-	border-radius: 50px;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	font-weight: 600;
-	box-shadow: 0 8px 25px rgba(139, 75, 140, 0.3);
-}
-
-.cta-button:hover {
-	transform: translateY(-3px);
-	box-shadow: 0 12px 35px rgba(139, 75, 140, 0.4);
-	background: var(--secondary-color);
-}
-
-.decorative-elements {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	pointer-events: none;
-	z-index: 1;
-}
-
-.heart-1,
-.heart-2,
-.heart-3 {
-	position: absolute;
-	font-size: clamp(2rem, 6vw, 4rem);
-	color: var(--accent-color);
-	animation: float 6s ease-in-out infinite;
-	opacity: 0.7;
-}
-
-.heart-1 {
-	top: 15%;
-	left: 10%;
-	animation-delay: 0s;
-}
-
-.heart-2 {
-	top: 70%;
-	right: 15%;
-	animation-delay: 2s;
-}
-
-.heart-3 {
-	top: 40%;
-	left: 5%;
-	animation-delay: 4s;
-}
-
-@keyframes float {
-	0%,
-	100% {
-		transform: translateY(0px) rotate(0deg);
-	}
-	33% {
-		transform: translateY(-20px) rotate(5deg);
-	}
-	66% {
-		transform: translateY(10px) rotate(-3deg);
-	}
 }
 
 /* Page 2 - Our Story */
 .page-2 {
 }
 
-.page-2 h2 {
-	color: var(--primary-color);
-	margin-bottom: 40px;
-	font-weight: 300;
-}
-
-.story-content {
-	display: flex;
-	flex-direction: column;
-	gap: 30px;
-	max-width: 800px;
-}
-
-.story-section {
-	background: rgba(255, 255, 255, 0.8);
-	padding: 30px;
-	border-radius: 20px;
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-	backdrop-filter: blur(10px);
-}
-
-.story-section h3 {
-	color: var(--secondary-color);
-	margin-bottom: 15px;
-	font-weight: 400;
-}
-
-.story-section p {
-	color: var(--text-dark);
-	line-height: 1.8;
-}
-
 /* Page 3 - Wedding Details */
-.page-3 {
-}
-
-.page-3 h2 {
-	color: var(--primary-color);
-	margin-bottom: 40px;
-	font-weight: 300;
-}
-
-.details-grid {
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 25px;
-	max-width: 900px;
-	width: 100%;
-}
-
-.detail-card {
-	background: rgba(255, 255, 255, 0.9);
-	padding: 25px;
-	border-radius: 15px;
-	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-	text-align: left;
-	border-left: 4px solid var(--primary-color);
-}
-
-.detail-card h3 {
-	color: var(--primary-color);
-	margin-bottom: 15px;
-	font-weight: 500;
-}
-
-.detail-card p {
-	margin: 8px 0;
-	color: var(--text-dark);
-}
-
-.detail-card strong {
-	color: var(--secondary-color);
-	font-weight: 600;
-}
+.page-3 {}
 
 /* Page 4 - RSVP */
 .page-4 {
 }
 
-.page-4 h2 {
-	color: var(--primary-color);
-	margin-bottom: 30px;
-	font-weight: 300;
+/* Mobile Responsive - FORCED MOBILE VIEW */
+/* Override all desktop styles to force mobile layout */
+.navigation {
+	right: 20px !important;
 }
 
-.rsvp-content {
-	max-width: 600px;
+.nav-dot {
+	width: 12px !important;
+	height: 12px !important;
 }
 
-.rsvp-text {
-	font-size: clamp(1.1rem, 3vw, 1.3rem);
-	margin-bottom: 30px;
-	color: var(--text-dark);
-	line-height: 1.8;
+.story-content {
+	flex-direction: column !important;
+	gap: 20px !important;
 }
 
-.rsvp-deadline {
-	background: rgba(255, 255, 255, 0.9);
-	padding: 20px;
-	border-radius: 15px;
-	margin: 30px 0;
-	border: 2px solid var(--accent-color);
+.story-section {
+	flex: none !important;
 }
 
-.rsvp-deadline p {
-	color: var(--primary-color);
-	font-weight: 600;
-	font-size: 1.1rem;
+.details-grid {
+	grid-template-columns: 1fr !important;
+	gap: 20px !important;
 }
 
 .rsvp-actions {
-	display: flex;
-	flex-direction: column;
-	gap: 15px;
-	margin: 30px 0;
+	flex-direction: column !important;
+	gap: 15px !important;
 }
 
 .rsvp-button {
-	padding: 15px 25px;
-	border-radius: 50px;
-	border: 2px solid;
-	font-size: 1.1rem;
-	font-weight: 600;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	text-transform: uppercase;
-	letter-spacing: 1px;
+	flex: none !important;
+	max-width: none !important;
+	width: 100% !important;
 }
 
-.rsvp-yes {
-	background: var(--primary-color);
-	color: var(--text-light);
-	border-color: var(--primary-color);
+.page {
 }
 
-.rsvp-yes:hover {
-	background: var(--secondary-color);
-	border-color: var(--secondary-color);
-	transform: translateY(-2px);
-	box-shadow: 0 8px 20px rgba(139, 75, 140, 0.3);
+/* Force Mobile View - Additional CSS */
+/* Ensure container behaves as mobile regardless of screen size */
+.app {
+	max-width: 480px !important;
+	margin: 0 auto !important;
+	box-sizing: border-box !important;
 }
 
-.rsvp-no {
-	background: transparent;
-	color: var(--primary-color);
-	border-color: var(--primary-color);
+.pages-container {
+	max-width: 480px !important;
+	margin: 0 auto !important;
 }
 
-.rsvp-no:hover {
-	background: var(--primary-color);
-	color: var(--text-light);
-	transform: translateY(-2px);
+/* Ensure touch interactions work properly */
+.page {
+	touch-action: pan-y !important;
 }
 
-.contact-info {
-	margin-top: 40px;
-	padding: 20px;
-	background: rgba(255, 255, 255, 0.8);
-	border-radius: 15px;
+/* Force mobile layout for all elements */
+* {
+	box-sizing: border-box !important;
 }
 
-.contact-info p {
-	margin: 8px 0;
-	color: var(--text-dark);
-}
-
-.contact-info p:first-child {
-	font-weight: 600;
-	color: var(--primary-color);
-	margin-bottom: 15px;
-}
-
-/* Mobile Responsive */
-@media (min-width: 768px) {
+/* Override any responsive behavior */
+@media screen {
 	.navigation {
-		right: 30px;
+		right: 15px !important;
+		gap: 10px !important;
 	}
-
+	
 	.nav-dot {
-		width: 15px;
-		height: 15px;
+		width: 10px !important;
+		height: 10px !important;
 	}
-
-	.story-content {
-		flex-direction: row;
-		gap: 40px;
-	}
-
-	.story-section {
-		flex: 1;
-	}
-
-	.details-grid {
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: 30px;
-	}
-
-	.rsvp-actions {
-		flex-direction: row;
-		justify-content: center;
-		gap: 20px;
-	}
-
-	.rsvp-button {
-		flex: 1;
-		max-width: 200px;
-	}
-}
-
-@media (min-width: 1024px) {
-	.page {
-		padding: 40px;
-	}
-	.details-grid {
-		grid-template-columns: repeat(3, 1fr);
+	
+	.audio-control {
+		width: 45px !important;
+		height: 45px !important;
+		top: 15px !important;
+		right: 15px !important;
+		font-size: 18px !important;
 	}
 }
