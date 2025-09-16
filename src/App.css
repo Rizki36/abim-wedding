@@ -42,13 +42,6 @@
 	transition: opacity 1s ease, transform 1s ease;
 }
 
-.page-content img {
-	position: absolute;
-	max-width: 100%;
-	height: auto;
-	object-fit: contain;
-}
-
 .nav-dot {
 	width: 12px;
 	height: 12px;
@@ -106,42 +99,15 @@
 /* .page-4 {} */
 
 /* Gift Card Styles */
-.layer-wrap {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	width: 100%;
-	height: 100%;
-	pointer-events: none;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.layer.gift-panel {
-	position: absolute;
-	pointer-events: auto;
-}
 
 .gift-card {
-	background: rgba(255, 255, 255, 0.95);
-	backdrop-filter: blur(10px);
-	border-radius: 15px;
-	padding: 20px;
 	margin-bottom: 15px;
-	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-	border: 1px solid rgba(255, 255, 255, 0.2);
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
 }
 
-.gift-card:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
-}
 
 .gift-card h4 {
 	margin: 0 0 15px 0;
@@ -149,7 +115,6 @@
 	font-size: 18px;
 	font-weight: 600;
 	text-align: center;
-	border-bottom: 2px solid #e8f4f8;
 	padding-bottom: 10px;
 }
 

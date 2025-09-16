@@ -3,42 +3,52 @@ import "./App.css";
 import backsoundUrl from "./assets/backsound.mp3";
 
 // Page 1 assets
-import page1_2 from "./assets/1/2. FG.webp";
-import page1_3 from "./assets/1/3. STAMP.webp";
-import page1_4 from "./assets/1/4. 26.webp";
-import page1_5 from "./assets/1/5. NAMA.webp";
-import page1_6 from "./assets/1/6. ART.webp";
+import page1_1_1 from "./assets/1/1. DAUN_ATAS KANAN.webp";
+import page1_1_2 from "./assets/1/1. DAUN_ATAS KIRI.webp";
+import page1_1_3 from "./assets/1/1. DAUN_BAWAH KANAN.webp";
+import page1_1_4 from "./assets/1/1. DAUN_BAWAH KIRI.webp";
+import page1_3 from "./assets/1/3. STAMP_1.webp";
+import page1_4 from "./assets/1/4. 26_1.webp";
+import page1_5 from "./assets/1/5. NAMA_1.webp";
+import page1_6 from "./assets/1/6. ART_1.webp";
 
 // Page 2 assets
-import page2_0 from "./assets/2/0. ASS.webp";
-import page2_1 from "./assets/2/1. DAUN.webp";
-import page2_2 from "./assets/2/2. ART.webp";
-import page2_3 from "./assets/2/3. IBU.webp";
-import page2_4 from "./assets/2/4. AYAH.webp";
-import page2_5 from "./assets/2/5. BG CONTXT.webp";
+import page2_0 from "./assets/2/0. ASS_2.webp";
+import page2_2 from "./assets/2/2. ART_2.webp";
+import page2_3_1 from "./assets/2/3. IBU 1_2.webp";
+import page2_3_2 from "./assets/2/3. IBU 2_2.webp";
+import page2_4_1 from "./assets/2/4. AYAH 1_3.webp";
+import page2_4_2 from "./assets/2/4. AYAH 2_3.webp";
+import page2_5 from "./assets/2/5. BG CONTXT_2.webp";
 
 // Page 3 assets
-import page3_1 from "./assets/3/1. WAKTU DAN TEMPAT.webp";
-import page3_2 from "./assets/3/2. DAUN.webp";
-import page3_3 from "./assets/3/3. ART.webp";
-import page3_4 from "./assets/3/4. TSAH.webp";
-import page3_5 from "./assets/3/5. HANDSHAKE.gif";
-import page3_6 from "./assets/3/6. RESEPSI NIKAH.webp";
-import page3_7 from "./assets/3/7. TEMU JAWA.webp";
-import page3_8 from "./assets/3/8. AKAD.webp";
-import page3_9 from "./assets/3/9. LOC.webp";
-import page3_10 from "./assets/3/10. COLOR.webp";
-import page3_11 from "./assets/3/11. DATE.webp";
-import page3_12 from "./assets/3/12. DATE BG.webp";
+import page3_1 from "./assets/3/1. WAKTU DAN TEMPAT_3.webp";
+import page3_2_1 from "./assets/3/2. DAUN_BAWAH KANAN_3.webp";
+import page3_2_2 from "./assets/3/2. DAUN_BAWAH KIRI_3.webp";
+import page3_3_1 from "./assets/3/3. ART_ABI_3.webp";
+import page3_3_2 from "./assets/3/3. ART_ERICA_3.webp";
+import page3_4_1 from "./assets/3/4. TSAH_1_3.webp";
+import page3_4_2 from "./assets/3/4. TSAH_2_3.webp";
+import page3_5 from "./assets/3_rumah/5. HANDSHAKE_3 RUMAH.gif";
+import page3_6 from "./assets/3/6. RESEPSI NIKAH_3.webp";
+import page3_7 from "./assets/3/7. TEMU JAWA_3.webp";
+import page3_8 from "./assets/3/8. AKAD_3.webp";
+import page3_9 from "./assets/3/9. LOC_3.webp";
+import page3_10 from "./assets/3/10. COLOR_3.webp";
+import page3_11 from "./assets/3/11. DATE_3.webp";
+import page3_12 from "./assets/3/12. DATE BG_3.webp";
 
 // Page 4 assets
-import page4_1 from "./assets/4/1. DAUN.webp";
-import page4_2 from "./assets/4/2. FG.webp";
-import page4_3 from "./assets/4/3. AMPLOP DIGITAL TXT.webp";
-import page4_4 from "./assets/4/4. USERNAME.webp";
-import page4_5 from "./assets/4/5. ART.webp";
-import page4_6 from "./assets/4/6. TERIMAKASIH.webp";
-import page4_7 from "./assets/4/7. DAUN BG.webp";
+import page4_1 from "./assets/4/1. DAUN_4.webp";
+// import page4_2_1 from "./assets/4/2. FG_1_4.webp";
+// import page4_2_2 from "./assets/4/2. FG_2_4.webp";
+import page4_3 from "./assets/4/3. AMPLOP DIGITAL TXT_4.webp";
+// import page4_4_1 from "./assets/4/4. USERNAME_ABI_4.webp";
+// import page4_4_2 from "./assets/4/4. USERNAME_ERICA_4.webp";
+// import page4_5 from "./assets/4/5. ART_4.webp";
+import page4_6 from "./assets/4/6. TERIMAKASIH_4.webp";
+// import page4_7_1 from "./assets/4/7. DAUN BG_1_4.webp";
+// import page4_7_2 from "./assets/4/7. DAUN BG_2_4.webp";
 
 function App() {
 	// Get name from URL query parameters
@@ -51,7 +61,7 @@ function App() {
 	const page4Ref = useRef<HTMLDivElement>(null);
 	const audioRef = useRef<HTMLAudioElement>(null);
 	const [currentPage, setCurrentPage] = useState(0);
-	const [isAudioPlaying, setIsAudioPlaying] = useState(true);
+	const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 	const [audioInitialized, setAudioInitialized] = useState(false);
 
 	// Copy to clipboard function
@@ -286,125 +296,306 @@ function App() {
 			</button>
 
 			<div ref={containerRef} className="pages-container">
-				{/* Page 1: Welcome */}
+				{/* Page 1 */}
 				<div ref={page1Ref} className="page page-1">
 					<div className="page-content">
-						<img src={page1_4} alt="Date" className="absolute z-10" />
-						<img src={page1_6} alt="Character" className="absolute" />
-						<img src={page1_5} alt="Name" className="absolute" />
-						<div className="inset-0">
-							<img src={page1_3} alt="Stamp" className="absolute" />
-							{/* TODO */}
-							<div className="absolute z-20 bottom-0">{name}</div>
+						<div className="absolute bottom-[300px] left-0 right-0">
+							<div className="relative">
+								<img src={page1_6} alt="Character" className="w-full" />
+								<img src={page1_5} alt="Name" className="absolute bottom-0" />
+								<img
+									src={page1_4}
+									alt="Date"
+									className="absolute w-[200px] top-[100px]"
+								/>
+							</div>
 						</div>
-						<img src={page1_2} alt="Foreground" className="absolute" />
+
+						<div className="absolute bottom-[150px]">
+							<div className="relative w-3/4 mx-auto">
+								<img src={page1_3} alt="Stamp" />
+								<div className="absolute inset-0 flex items-center justify-center p-3 rotate-[-2deg]">
+									{name}
+								</div>
+							</div>
+						</div>
+
+						{/* <img
+							src={page1_2_1}
+							alt="Foreground"
+							className="absolute right-0 top-0 bottom-0 w-[50px]"
+						/> */}
+						{/* <img
+							src={page1_2_2}
+							alt="Foreground"
+							className="absolute left-0 top-0 bottom-0 w-[50px]"
+						/> */}
+
+						<img
+							src={page1_1_1}
+							alt=""
+							className="absolute top-0 right-0 w-[150px]"
+						/>
+						<img
+							src={page1_1_2}
+							alt=""
+							className="absolute top-0 left-0 w-[150px]"
+						/>
+						<img
+							src={page1_1_3}
+							alt=""
+							className="absolute bottom-0 right-0 w-[150px]"
+						/>
+						<img
+							src={page1_1_4}
+							alt=""
+							className="absolute bottom-0 left-0 w-[150px]"
+						/>
 					</div>
 				</div>
 
-				{/* Page 2: Our Story */}
+				{/* Page 2 */}
 				<div ref={page2Ref} className="page page-2">
 					<div className="page-content">
-						<img src={page2_5} alt="Background" className="absolute" />
-						<img src={page2_4} alt="Father" className="absolute" />
-						<img src={page2_3} alt="Mother" className="absolute" />
-						<img src={page2_2} alt="Art" className="absolute" />
-						<img src={page2_1} alt="Leaf" className="absolute" />
-						<img src={page2_0} alt="Greeting" className="absolute" />
+						<img
+							src={page2_5}
+							alt="Background"
+							className="absolute bottom-[100px] w-3/4 left-0 right-0 mx-auto"
+						/>
+						<img
+							src={page2_4_1}
+							alt="Father"
+							className="absolute bottom-[280px] right-0 w-1/4"
+						/>
+						<img
+							src={page2_4_2}
+							alt="Father"
+							className="absolute bottom-[280px] left-0 w-1/4"
+						/>
+
+						<img
+							src={page2_3_1}
+							alt="Mother"
+							className="absolute bottom-0 left-0 w-1/2"
+						/>
+						<img
+							src={page2_3_2}
+							alt="Mother"
+							className="absolute bottom-0 right-0 w-1/2"
+						/>
+
+						<img src={page2_2} alt="Art" className="absolute bottom-0" />
+						{/* <img src={page2_1} alt="Leaf" className="absolute" /> */}
+
+						<img
+							src={page1_1_1}
+							alt=""
+							className="absolute top-0 right-0 w-[150px]"
+						/>
+						<img
+							src={page1_1_2}
+							alt=""
+							className="absolute top-0 left-0 w-[150px]"
+						/>
+						<img
+							src={page1_1_3}
+							alt=""
+							className="absolute bottom-0 right-0 w-[120px]"
+						/>
+						<img
+							src={page1_1_4}
+							alt=""
+							className="absolute bottom-0 left-0 w-[120px]"
+						/>
+
+						<img
+							src={page2_0}
+							alt="Greeting"
+							className="absolute top-[50px] w-[90%] mx-auto inset-x-0"
+						/>
 					</div>
 				</div>
 
-				{/* Page 3: Wedding Details */}
+				{/* Page 3 */}
 				<div ref={page3Ref} className="page page-3">
 					<div className="page-content">
-						<img src={page3_6} alt="" className="absolute" />
-						<img src={page3_7} alt="" className="absolute" />
-						<img src={page3_8} alt="" className="absolute" />
-						<img src={page3_4} alt="" className="absolute" />
-						<img src={page3_12} alt="" className="absolute" />
-						<img src={page3_9} alt="" className="absolute" />
-						<img src={page3_11} alt="" className="absolute" />
-						<img src={page3_5} alt="" className="absolute" />
-						<img src={page3_10} alt="" className="absolute" />
-						<img src={page3_3} alt="" className="absolute" />
-						<img src={page3_2} alt="" className="absolute" />
-						<img src={page3_1} alt="" className="absolute" />
+						<div className="absolute top-[40px] left-0 right-0 z-10">
+							<img src={page3_1} alt="" className="w-[200px] mx-auto" />
+							<div className="relative mx-auto w-[350px]">
+								<img
+									src={page3_11}
+									alt=""
+									className="absolute left-0 top-0 bottom-0 w-[150px]"
+								/>
+								<img
+									src={page3_9}
+									alt=""
+									className="absolute top-0 right-0 w-[60px]"
+								/>
+								<img src={page3_12} alt="" className="w-full" />
+							</div>
+						</div>
+
+						<div className="absolute bottom-[150px]">
+							<div className="relative">
+								<img
+									src={page3_8}
+									alt=""
+									className="w-[250px] mx-auto mb-[-20px]"
+								/>
+								<div className="relative">
+									<img src={page3_5} alt="" className="relative" />
+									<img
+										src={page3_4_1}
+										alt=""
+										className="absolute left-0 bottom-[150px] h-[50px]"
+									/>
+									<img
+										src={page3_4_2}
+										alt=""
+										className="absolute right-0 bottom-[150px] h-[50px]"
+									/>
+								</div>
+
+								<img
+									src={page3_7}
+									alt=""
+									className="w-[250px] mx-auto mt-[-20px]"
+								/>
+								<img
+									src={page3_6}
+									alt=""
+									className="w-[290px] mx-auto mt-[-70px] pl-[20px]"
+								/>
+								<img
+									src={page3_10}
+									alt=""
+									className="w-[180px] mx-auto mt-[10px]"
+								/>
+							</div>
+						</div>
+
+						<img
+							src={page3_3_1}
+							alt=""
+							className="absolute bottom-0 left-0 w-[170px]"
+						/>
+						<img
+							src={page3_3_2}
+							alt=""
+							className="absolute bottom-0 right-0 w-[150px]"
+						/>
+
+						<img
+							src={page3_2_1}
+							alt=""
+							className="absolute bottom-0 right-0 w-[200px]"
+						/>
+						<img
+							src={page3_2_2}
+							alt=""
+							className="absolute bottom-0 left-0 w-[200px]"
+						/>
+
+						<img
+							src={page1_1_1}
+							alt=""
+							className="absolute top-0 right-0 w-[150px]"
+						/>
+						<img
+							src={page1_1_2}
+							alt=""
+							className="absolute top-0 left-0 w-[150px]"
+						/>
 					</div>
 				</div>
 
-				{/* Page 4: RSVP */}
+				{/* Page 4 */}
 				<div ref={page4Ref} className="page page-4">
 					<div className="page-content">
-						<img src={page4_2} alt="" className="absolute" />
-						<img src={page4_3} alt="" className="absolute" />
-						<img src={page4_4} alt="" className="absolute" />
-						<img src={page4_5} alt="" className="absolute" />
-						<img src={page4_7} alt="" className="absolute" />
-						<img src={page4_6} alt="" className="absolute" />
-						<img src={page4_1} alt="" className="absolute" />
+						{/* <img src={page4_7} alt="" className="absolute" /> */}
+						{/* <img src={page4_5} alt="" className="absolute bottom-0" /> */}
+						{/* <img src={page4_4} alt="" className="absolute" /> */}
+						<div className="mt-[60px]">
+							<div className="flex px-3">
+								{/* <img src={page4_7_2} alt="" className="" /> */}
+								<img src={page4_6} alt="" className="flex-1" />
+								{/* <img src={page4_7_1} alt="" className="" /> */}
+							</div>
+							<img src={page4_3} alt="" className="w-[150px] mx-auto mt-5" />
 
-						{/* Gift card */}
-						<div className="layer-wrap" style={{ zIndex: 9 }}>
-							<div className="layer gift-panel">
-								<div className="gift-card">
-									<h4>Abi Manyu Fajrul Falah</h4>
-									<div className="gift-row">
-										<span className="gift-label">BCA:</span>
-										<div className="gift-field">
-											<code id="abi-rek">1131466027</code>
-											<button
-												type="button"
-												className="copy-btn"
-												onClick={() => copyToClipboard("1131466027")}
-											>
-												Salin
-											</button>
+							<div style={{ zIndex: 9 }}>
+								<div className="layer gift-panel">
+									<div className="gift-card">
+										<h4>Abi Manyu Fajrul Falah</h4>
+
+										<div className="gift-row">
+											<span className="gift-label">BCA:</span>
+											<div className="gift-field">
+												<code id="abi-rek">1131466027</code>
+												<button
+													type="button"
+													className="copy-btn"
+													onClick={() => copyToClipboard("1131466027")}
+												>
+													Salin
+												</button>
+											</div>
+										</div>
+										<div className="gift-row">
+											<span className="gift-label">
+												Gopay / ShopeePay / Ovo:
+											</span>
+											<div className="gift-field">
+												<code id="abi-ewallet">089667427861</code>
+												<button
+													type="button"
+													className="copy-btn"
+													onClick={() => copyToClipboard("089667427861")}
+												>
+													Salin
+												</button>
+											</div>
 										</div>
 									</div>
-									<div className="gift-row">
-										<span className="gift-label">Gopay / ShopeePay / Ovo:</span>
-										<div className="gift-field">
-											<code id="abi-ewallet">089667427861</code>
-											<button
-												type="button"
-												className="copy-btn"
-												onClick={() => copyToClipboard("089667427861")}
-											>
-												Salin
-											</button>
+									<div className="gift-card">
+										<h4>Erica Surya</h4>
+										<div className="gift-row">
+											<span className="gift-label">BCA:</span>
+											<div className="gift-field">
+												<code id="erica-rek">1132423401</code>
+												<button
+													type="button"
+													className="copy-btn"
+													onClick={() => copyToClipboard("1132423401")}
+												>
+													Salin
+												</button>
+											</div>
 										</div>
-									</div>
-								</div>
-								<div className="gift-card">
-									<h4>Erica Surya</h4>
-									<div className="gift-row">
-										<span className="gift-label">BCA:</span>
-										<div className="gift-field">
-											<code id="erica-rek">1132423401</code>
-											<button
-												type="button"
-												className="copy-btn"
-												onClick={() => copyToClipboard("1132423401")}
-											>
-												Salin
-											</button>
-										</div>
-									</div>
-									<div className="gift-row">
-										<span className="gift-label">Gopay / ShopeePay / Ovo:</span>
-										<div className="gift-field">
-											<code id="erica-ewallet">085784622423</code>
-											<button
-												type="button"
-												className="copy-btn"
-												onClick={() => copyToClipboard("085784622423")}
-											>
-												Salin
-											</button>
+										<div className="gift-row">
+											<span className="gift-label">
+												Gopay / ShopeePay / Ovo:
+											</span>
+											<div className="gift-field">
+												<code id="erica-ewallet">085784622423</code>
+												<button
+													type="button"
+													className="copy-btn"
+													onClick={() => copyToClipboard("085784622423")}
+												>
+													Salin
+												</button>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						{/* <img src={page4_2} alt="" className="absolute" /> */}
+						<img src={page4_1} alt="" className="absolute top-0" />
+
+						{/* Gift card */}
 					</div>
 				</div>
 			</div>
