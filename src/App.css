@@ -116,22 +116,6 @@
 	transition: opacity 1s ease, transform 1s ease;
 }
 
-.nav-dot {
-	width: 12px;
-	height: 12px;
-	border-radius: 50%;
-	border: 2px solid var(--primary-color);
-	background: transparent;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	padding: 0;
-}
-
-.nav-dot:hover,
-.nav-dot.active {
-	background: var(--primary-color);
-	transform: scale(1.2);
-}
 
 /* Audio Control */
 /* Themed Audio Control - wax seal style */
@@ -184,15 +168,6 @@
 
 /* Mobile Responsive - FORCED MOBILE VIEW */
 /* Override all desktop styles to force mobile layout */
-.navigation {
-	right: 20px !important;
-}
-
-.nav-dot {
-	width: 12px !important;
-	height: 12px !important;
-}
-
 .story-content {
 	flex-direction: column !important;
 	gap: 20px !important;
@@ -200,22 +175,6 @@
 
 .story-section {
 	flex: none !important;
-}
-
-.details-grid {
-	grid-template-columns: 1fr !important;
-	gap: 20px !important;
-}
-
-.rsvp-actions {
-	flex-direction: column !important;
-	gap: 15px !important;
-}
-
-.rsvp-button {
-	flex: none !important;
-	max-width: none !important;
-	width: 100% !important;
 }
 
 /* .page {} */
@@ -245,16 +204,6 @@
 
 /* Override any responsive behavior */
 @media screen {
-	.navigation {
-		right: 15px !important;
-		gap: 10px !important;
-	}
-
-	.nav-dot {
-		width: 10px !important;
-		height: 10px !important;
-	}
-
 	.audio-control {
 		width: 45px !important;
 		height: 45px !important;
