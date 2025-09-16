@@ -98,82 +98,6 @@
 /* Page 4 - RSVP */
 /* .page-4 {} */
 
-/* Gift Card Styles */
-
-.gift-card {
-	margin-bottom: 15px;
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-}
-
-
-.gift-card h4 {
-	margin: 0 0 15px 0;
-	color: #2c3e50;
-	font-size: 18px;
-	font-weight: 600;
-	text-align: center;
-	padding-bottom: 10px;
-}
-
-.gift-row {
-	margin-bottom: 12px;
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-}
-
-.gift-label {
-	font-size: 14px;
-	font-weight: 500;
-	color: #34495e;
-	margin-bottom: 5px;
-}
-
-.gift-field {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	background: #f8f9fa;
-	border-radius: 8px;
-	padding: 10px;
-	border: 1px solid #e9ecef;
-}
-
-.gift-field code {
-	flex: 1;
-	background: transparent;
-	border: none;
-	font-family: "Courier New", monospace;
-	font-size: 16px;
-	font-weight: 600;
-	color: #2c3e50;
-	letter-spacing: 1px;
-}
-
-.copy-btn {
-	background: #3498db;
-	color: white;
-	border: none;
-	padding: 8px 16px;
-	border-radius: 6px;
-	font-size: 12px;
-	font-weight: 500;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	white-space: nowrap;
-}
-
-.copy-btn:hover {
-	background: #2980b9;
-	transform: scale(1.05);
-}
-
-.copy-btn:active {
-	transform: scale(0.98);
-}
 
 /* Mobile Responsive - FORCED MOBILE VIEW */
 /* Override all desktop styles to force mobile layout */
@@ -256,38 +180,5 @@
 		font-size: 18px !important;
 	}
 
-	/* Gift Card Mobile Responsive */
-	/* .layer.gift-panel {} */
-
-	.gift-card {
-		padding: 15px !important;
-		margin-bottom: 10px !important;
-	}
-
-	.gift-card h4 {
-		font-size: 16px !important;
-		margin-bottom: 12px !important;
-	}
-
-	.gift-label {
-		font-size: 12px !important;
-	}
-
-	.gift-field {
-		padding: 8px !important;
-		gap: 8px !important;
-	}
-
-	.gift-field code {
-		font-size: 14px !important;
-		min-width: 0 !important;
-		overflow: hidden !important;
-		text-overflow: ellipsis !important;
-	}
-
-	.copy-btn {
-		padding: 6px 12px !important;
-		font-size: 11px !important;
-		min-width: 60px !important;
-	}
+	/* (gift card styles migrated to Tailwind utilities) */
 }

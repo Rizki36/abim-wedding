@@ -63,24 +63,61 @@ function App() {
 	const [currentPage, setCurrentPage] = useState(0);
 	const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 	const [audioInitialized, setAudioInitialized] = useState(false);
+	// Toast state
+	const [toastMessage, setToastMessage] = useState<string | null>(null);
+	const [showToast, setShowToast] = useState(false);
+	const toastTimeoutRef = useRef<number | null>(null);
+
+	const triggerToast = useCallback((message: string) => {
+		setToastMessage(message);
+		setShowToast(true);
+		if (toastTimeoutRef.current) {
+			clearTimeout(toastTimeoutRef.current);
+		}
+		toastTimeoutRef.current = window.setTimeout(() => {
+			setShowToast(false);
+		}, 2000);
+	}, []);
 
 	// Copy to clipboard function
 	const copyToClipboard = async (text: string) => {
 		try {
 			await navigator.clipboard.writeText(text);
-			// You could add a toast notification here if needed
+			triggerToast("Tersalin ke clipboard");
 			console.log("Copied to clipboard:", text);
 		} catch (err) {
-			console.error("Failed to copy: ", err);
+			console.error("Failed to copy via Clipboard API: ", err);
 			// Fallback for older browsers
-			const textArea = document.createElement("textarea");
-			textArea.value = text;
-			document.body.appendChild(textArea);
-			textArea.select();
-			document.execCommand("copy");
-			document.body.removeChild(textArea);
+			try {
+				const textArea = document.createElement("textarea");
+				textArea.value = text;
+				textArea.setAttribute("readonly", "");
+				textArea.style.position = "absolute";
+				textArea.style.left = "-9999px";
+				document.body.appendChild(textArea);
+				textArea.select();
+				const ok = document.execCommand("copy");
+				document.body.removeChild(textArea);
+				if (ok) {
+					triggerToast("Tersalin ke clipboard");
+				} else {
+					triggerToast("Gagal menyalin");
+				}
+			} catch (fallbackErr) {
+				console.error("Fallback copy failed:", fallbackErr);
+				triggerToast("Gagal menyalin");
+			}
 		}
 	};
+
+	// Cleanup toast timeout on unmount
+	useEffect(() => {
+		return () => {
+			if (toastTimeoutRef.current) {
+				clearTimeout(toastTimeoutRef.current);
+			}
+		};
+	}, []);
 
 	// Audio control functions
 	const initializeAudio = useCallback(async () => {
@@ -274,6 +311,15 @@ function App() {
 
 	return (
 		<div className="app mobile-forced">
+			{/* Toast */}
+			{showToast && (
+				<output
+					className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[9999] bg-slate-800 text-white text-sm px-3 py-2 rounded-lg shadow-lg"
+					aria-live="polite"
+				>
+					{toastMessage || "Tersalin"}
+				</output>
+			)}
 			{/* Audio element */}
 			<audio
 				ref={audioRef}
@@ -522,71 +568,95 @@ function App() {
 								<img src={page4_6} alt="" className="flex-1" />
 								{/* <img src={page4_7_1} alt="" className="" /> */}
 							</div>
-							<img src={page4_3} alt="" className="w-[150px] mx-auto mt-5" />
+							<img
+								src={page4_3}
+								alt=""
+								className="w-[150px] mx-auto mt-5 mb-2"
+							/>
 
-							<div style={{ zIndex: 9 }}>
-								<div className="layer gift-panel">
-									<div className="gift-card">
-										<h4>Abi Manyu Fajrul Falah</h4>
+							<div className="relative z-[9] mx-3">
+								<div className="flex flex-col gap-4">
+									<div className="w-full mx-auto">
+										<h4 className="m-0 mb-3 text-slate-800 text-lg font-semibold text-center pb-2">
+											Abi Manyu Fajrul Falah
+										</h4>
 
-										<div className="gift-row">
-											<span className="gift-label">BCA:</span>
-											<div className="gift-field">
-												<code id="abi-rek">1131466027</code>
-												<button
-													type="button"
-													className="copy-btn"
-													onClick={() => copyToClipboard("1131466027")}
+										<div className="mb-3 flex flex-col gap-2">
+											<span className="text-sm font-medium text-slate-700 mb-1">
+												BCA:
+											</span>
+											<button
+												type="button"
+												className="flex items-center gap-2 bg-gray-50 rounded-lg p-2 border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors text-left w-full"
+												onClick={() => copyToClipboard("1131466027")}
+												aria-label="Salin nomor rekening 1131466027"
+											>
+												<code
+													id="abi-rek"
+													className="flex-1 bg-transparent border-0 font-mono text-base font-semibold text-slate-800 tracking-wider min-w-0 overflow-hidden text-ellipsis whitespace-nowrap"
 												>
-													Salin
-												</button>
-											</div>
+													1131466027
+												</code>
+											</button>
 										</div>
-										<div className="gift-row">
-											<span className="gift-label">
+										<div className="mb-3 flex flex-col gap-2">
+											<span className="text-sm font-medium text-slate-700 mb-1">
 												Gopay / ShopeePay / Ovo:
 											</span>
-											<div className="gift-field">
-												<code id="abi-ewallet">089667427861</code>
-												<button
-													type="button"
-													className="copy-btn"
-													onClick={() => copyToClipboard("089667427861")}
+											<button
+												type="button"
+												className="flex items-center gap-2 bg-gray-50 rounded-lg p-2 border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors text-left w-full"
+												onClick={() => copyToClipboard("089667427861")}
+												aria-label="Salin nomor e-wallet 089667427861"
+											>
+												<code
+													id="abi-ewallet"
+													className="flex-1 bg-transparent border-0 font-mono text-base font-semibold text-slate-800 tracking-wider min-w-0 overflow-hidden text-ellipsis whitespace-nowrap"
 												>
-													Salin
-												</button>
-											</div>
+													089667427861
+												</code>
+											</button>
 										</div>
 									</div>
-									<div className="gift-card">
-										<h4>Erica Surya</h4>
-										<div className="gift-row">
-											<span className="gift-label">BCA:</span>
-											<div className="gift-field">
-												<code id="erica-rek">1132423401</code>
-												<button
-													type="button"
-													className="copy-btn"
-													onClick={() => copyToClipboard("1132423401")}
+									<div className="w-full mx-auto">
+										<h4 className="m-0 mb-3 text-slate-800 text-lg font-semibold text-center pb-2">
+											Erica Surya
+										</h4>
+										<div className="mb-3 flex flex-col gap-2">
+											<span className="text-sm font-medium text-slate-700 mb-1">
+												BCA:
+											</span>
+											<button
+												type="button"
+												className="flex items-center gap-2 bg-gray-50 rounded-lg p-2 border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors text-left w-full"
+												onClick={() => copyToClipboard("1132423401")}
+												aria-label="Salin nomor rekening 1132423401"
+											>
+												<code
+													id="erica-rek"
+													className="flex-1 bg-transparent border-0 font-mono text-base font-semibold text-slate-800 tracking-wider min-w-0 overflow-hidden text-ellipsis whitespace-nowrap"
 												>
-													Salin
-												</button>
-											</div>
+													1132423401
+												</code>
+											</button>
 										</div>
-										<div className="gift-row">
-											<span className="gift-label">
+										<div className="mb-3 flex flex-col gap-2">
+											<span className="text-sm font-medium text-slate-700 mb-1">
 												Gopay / ShopeePay / Ovo:
 											</span>
-											<div className="gift-field">
-												<code id="erica-ewallet">085784622423</code>
-												<button
-													type="button"
-													className="copy-btn"
-													onClick={() => copyToClipboard("085784622423")}
+											<button
+												type="button"
+												className="flex items-center gap-2 bg-gray-50 rounded-lg p-2 border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors text-left w-full"
+												onClick={() => copyToClipboard("085784622423")}
+												aria-label="Salin nomor e-wallet 085784622423"
+											>
+												<code
+													id="erica-ewallet"
+													className="flex-1 bg-transparent border-0 font-mono text-base font-semibold text-slate-800 tracking-wider min-w-0 overflow-hidden text-ellipsis whitespace-nowrap"
 												>
-													Salin
-												</button>
-											</div>
+													085784622423
+												</code>
+											</button>
 										</div>
 									</div>
 								</div>
