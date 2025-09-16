@@ -56,7 +56,7 @@ function App() {
 	// Get name from URL query parameters
 	const urlParams = new URLSearchParams(window.location.search);
 	const name = urlParams.get("name") || "Guest";
-	const acara = urlParams.get("acara") || "Akad & Resepsi";
+	const event = urlParams.get("event") || "Akad & Resepsi";
 	const containerRef = useRef<HTMLDivElement>(null);
 	const page1Ref = useRef<HTMLDivElement>(null);
 	const page2Ref = useRef<HTMLDivElement>(null);
@@ -456,7 +456,7 @@ function App() {
 								<img src={page1_3} alt="Stamp" />
 								<div className="absolute inset-0 flex flex-col items-center justify-center p-3 rotate-[-2deg]">
 									<div>{name}</div>
-									<div>{acara}</div>
+									<div>{event}</div>
 								</div>
 							</div>
 						</div>
