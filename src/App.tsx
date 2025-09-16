@@ -40,6 +40,10 @@ import page3_10 from "./assets/3/10. COLOR_3.webp";
 import page3_11 from "./assets/3/11. DATE_3.webp";
 import page3_12 from "./assets/3/12. DATE BG_3.webp";
 
+import page3_rumah_9 from "./assets/3_rumah/9. KEDIAMAN TXT_3 RUMAH.webp";
+import page3_rumah_5 from "./assets/3_rumah/5. BG TXT_3 RUMAH.webp";
+import page3_rumah_6 from "./assets/3_rumah/6. MAPS_3 RUMAH.webp";
+
 // Page 4 assets
 import page4_1 from "./assets/4/1. DAUN_4.webp";
 // import page4_2_1 from "./assets/4/2. FG_1_4.webp";
@@ -57,6 +61,7 @@ function App() {
 	const urlParams = new URLSearchParams(window.location.search);
 	const name = urlParams.get("name") || "Guest";
 	const event = urlParams.get("event") || "Akad & Resepsi";
+	const location = urlParams.get("location") || "gedung"; // gedung | rumah
 	const containerRef = useRef<HTMLDivElement>(null);
 	const page1Ref = useRef<HTMLDivElement>(null);
 	const page2Ref = useRef<HTMLDivElement>(null);
@@ -559,96 +564,192 @@ function App() {
 
 				{/* Page 3 */}
 				<div ref={page3Ref} className="page page-3">
-					<div className="page-content">
-						<div className="absolute top-[40px] left-0 right-0 z-10">
-							<img src={page3_1} alt="" className="w-[200px] mx-auto" />
-							<div className="relative mx-auto w-[350px]">
-								<img
-									src={page3_11}
-									alt=""
-									className="absolute left-0 top-0 bottom-0 w-[150px]"
-								/>
-								<img
-									src={page3_9}
-									alt=""
-									className="absolute top-0 right-0 w-[60px]"
-								/>
-								<img src={page3_12} alt="" className="w-full" />
-							</div>
-						</div>
-
-						<div className="absolute bottom-[150px]">
-							<div className="relative">
-								<img
-									src={page3_8}
-									alt=""
-									className="w-[250px] mx-auto mb-[-20px]"
-								/>
-								<div className="relative">
-									<img src={page3_5} alt="" className="relative" />
+					{location === "rumah" && (
+						<div className="page-content">
+							<div className="absolute top-[40px] left-0 right-0 z-10">
+								<img src={page3_1} alt="" className="w-[200px] mx-auto" />
+								<div className="relative mx-auto w-[350px]">
 									<img
-										src={page3_4_1}
+										src={page3_11}
 										alt=""
-										className="absolute left-0 bottom-[150px] h-[50px]"
+										className="absolute left-0 top-0 bottom-0 w-[150px]"
 									/>
 									<img
-										src={page3_4_2}
+										src={page3_9}
 										alt=""
-										className="absolute right-0 bottom-[150px] h-[50px]"
+										className="absolute top-0 right-0 w-[60px]"
+									/>
+									<a
+										href="https://maps.app.goo.gl/xZeZFosWqoRB5nuo7"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<img src={page3_rumah_9} alt="" className="w-full" />
+									</a>
+								</div>
+							</div>
+
+							<div className="absolute bottom-[130px]">
+								<div className="relative">
+									<img
+										src={page3_rumah_5}
+										alt=""
+										className="w-full mx-auto mb-[-50px]"
+									/>
+									<div className="relative">
+										<img src={page3_5} alt="" className="relative" />
+										<img
+											src={page3_4_1}
+											alt=""
+											className="absolute left-0 bottom-[150px] h-[50px]"
+										/>
+										<img
+											src={page3_4_2}
+											alt=""
+											className="absolute right-0 bottom-[150px] h-[50px]"
+										/>
+									</div>
+
+									<img
+										src={page3_rumah_6}
+										alt=""
+										className="w-[180px] mx-auto mt-[10px]"
 									/>
 								</div>
-
-								<img
-									src={page3_7}
-									alt=""
-									className="w-[250px] mx-auto mt-[-20px]"
-								/>
-								<img
-									src={page3_6}
-									alt=""
-									className="w-[290px] mx-auto mt-[-70px] pl-[20px]"
-								/>
-								<img
-									src={page3_10}
-									alt=""
-									className="w-[180px] mx-auto mt-[10px]"
-								/>
 							</div>
+
+							<img
+								src={page3_3_1}
+								alt=""
+								className="absolute bottom-0 left-0 w-[170px]"
+							/>
+							<img
+								src={page3_3_2}
+								alt=""
+								className="absolute bottom-0 right-0 w-[150px]"
+							/>
+
+							<img
+								src={page3_2_1}
+								alt=""
+								className="absolute bottom-0 right-0 w-[200px]"
+							/>
+							<img
+								src={page3_2_2}
+								alt=""
+								className="absolute bottom-0 left-0 w-[200px]"
+							/>
+
+							<img
+								src={page1_1_1}
+								alt=""
+								className="absolute top-0 right-0 w-[150px]"
+							/>
+							<img
+								src={page1_1_2}
+								alt=""
+								className="absolute top-0 left-0 w-[150px]"
+							/>
 						</div>
+					)}
+					{location === "gedung" && (
+						<div className="page-content">
+							<div className="absolute top-[40px] left-0 right-0 z-10">
+								<img src={page3_1} alt="" className="w-[200px] mx-auto" />
+								<div className="relative mx-auto w-[350px]">
+									<img
+										src={page3_11}
+										alt=""
+										className="absolute left-0 top-0 bottom-0 w-[150px]"
+									/>
+									<img
+										src={page3_9}
+										alt=""
+										className="absolute top-0 right-0 w-[60px]"
+									/>
+									<a
+										href="https://maps.app.goo.gl/AGDtYprSn8Xo9KkY6"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<img src={page3_12} alt="" className="w-full" />
+									</a>
+								</div>
+							</div>
 
-						<img
-							src={page3_3_1}
-							alt=""
-							className="absolute bottom-0 left-0 w-[170px]"
-						/>
-						<img
-							src={page3_3_2}
-							alt=""
-							className="absolute bottom-0 right-0 w-[150px]"
-						/>
+							<div className="absolute bottom-[150px]">
+								<div className="relative">
+									<img
+										src={page3_8}
+										alt=""
+										className="w-[250px] mx-auto mb-[-20px]"
+									/>
+									<div className="relative">
+										<img src={page3_5} alt="" className="relative" />
+										<img
+											src={page3_4_1}
+											alt=""
+											className="absolute left-0 bottom-[150px] h-[50px]"
+										/>
+										<img
+											src={page3_4_2}
+											alt=""
+											className="absolute right-0 bottom-[150px] h-[50px]"
+										/>
+									</div>
 
-						<img
-							src={page3_2_1}
-							alt=""
-							className="absolute bottom-0 right-0 w-[200px]"
-						/>
-						<img
-							src={page3_2_2}
-							alt=""
-							className="absolute bottom-0 left-0 w-[200px]"
-						/>
+									<img
+										src={page3_7}
+										alt=""
+										className="w-[250px] mx-auto mt-[-20px]"
+									/>
+									<img
+										src={page3_6}
+										alt=""
+										className="w-[290px] mx-auto mt-[-70px] pl-[20px]"
+									/>
+									<img
+										src={page3_10}
+										alt=""
+										className="w-[180px] mx-auto mt-[10px]"
+									/>
+								</div>
+							</div>
 
-						<img
-							src={page1_1_1}
-							alt=""
-							className="absolute top-0 right-0 w-[150px]"
-						/>
-						<img
-							src={page1_1_2}
-							alt=""
-							className="absolute top-0 left-0 w-[150px]"
-						/>
-					</div>
+							<img
+								src={page3_3_1}
+								alt=""
+								className="absolute bottom-0 left-0 w-[170px]"
+							/>
+							<img
+								src={page3_3_2}
+								alt=""
+								className="absolute bottom-0 right-0 w-[150px]"
+							/>
+
+							<img
+								src={page3_2_1}
+								alt=""
+								className="absolute bottom-0 right-0 w-[200px]"
+							/>
+							<img
+								src={page3_2_2}
+								alt=""
+								className="absolute bottom-0 left-0 w-[200px]"
+							/>
+
+							<img
+								src={page1_1_1}
+								alt=""
+								className="absolute top-0 right-0 w-[150px]"
+							/>
+							<img
+								src={page1_1_2}
+								alt=""
+								className="absolute top-0 left-0 w-[150px]"
+							/>
+						</div>
+					)}
 				</div>
 
 				{/* Page 4 */}
