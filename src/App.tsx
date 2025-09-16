@@ -226,13 +226,12 @@ function App() {
 			}
 		};
 
-		// biome-ignore lint/complexity/noForEach: <explanation>
-		assetUrls.forEach((src) => {
+		for (const src of assetUrls) {
 			const img = new Image();
 			img.onload = update;
 			img.onerror = update;
 			img.src = src;
-		});
+		}
 
 		return () => {
 			isCancelled = true;
@@ -424,11 +423,15 @@ function App() {
 			{/* Audio control button */}
 			<button
 				type="button"
-				className="audio-control"
+				className={`audio-control ${isAudioPlaying ? "playing" : "paused"}`}
 				onClick={toggleAudio}
 				aria-label={isAudioPlaying ? "Pause music" : "Play music"}
+				aria-pressed={isAudioPlaying}
 			>
-				{isAudioPlaying ? "🔊" : "🔇"}
+				<span aria-hidden className="icon" />
+				<span className="sr-only">
+					{isAudioPlaying ? "Pause music" : "Play music"}
+				</span>
 			</button>
 
 			<div ref={containerRef} className="pages-container">
