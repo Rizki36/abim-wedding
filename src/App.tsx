@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import "./App.css";
 import backsoundUrl from "./assets/backsound.mp3";
+import backgroundGif from "./assets/background.gif";
+import ThemedLoader from "./components/ThemedLoader";
 
 // Page 1 assets
 import page1_1_1 from "./assets/1/1. DAUN_ATAS KANAN.webp";
@@ -63,6 +65,9 @@ function App() {
 	const [currentPage, setCurrentPage] = useState(0);
 	const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 	const [audioInitialized, setAudioInitialized] = useState(false);
+	// Loading state
+	const [assetsProgress, setAssetsProgress] = useState(0);
+	const [assetsReady, setAssetsReady] = useState(false);
 	// Toast state
 	const [toastMessage, setToastMessage] = useState<string | null>(null);
 	const [showToast, setShowToast] = useState(false);
@@ -152,6 +157,87 @@ function App() {
 			console.log("Audio play failed:", error);
 		}
 	};
+
+	// Preload images and essential assets
+	useEffect(() => {
+		let isCancelled = false;
+		// Collect all imported asset URLs used in pages
+		const assetUrls: string[] = [
+			backgroundGif,
+			// Page 1
+			page1_1_1,
+			page1_1_2,
+			page1_1_3,
+			page1_1_4,
+			page1_3,
+			page1_4,
+			page1_5,
+			page1_6,
+			// Page 2
+			page2_0,
+			page2_2,
+			page2_3_1,
+			page2_3_2,
+			page2_4_1,
+			page2_4_2,
+			page2_5,
+			// Page 3
+			page3_1,
+			page3_2_1,
+			page3_2_2,
+			page3_3_1,
+			page3_3_2,
+			page3_4_1,
+			page3_4_2,
+			page3_5,
+			page3_6,
+			page3_7,
+			page3_8,
+			page3_9,
+			page3_10,
+			page3_11,
+			page3_12,
+			// Page 4
+			page4_1,
+			page4_3,
+			page4_6,
+		];
+
+		const total = assetUrls.length;
+		if (total === 0) {
+			setAssetsProgress(100);
+			setAssetsReady(true);
+			return;
+		}
+
+		let loaded = 0;
+		const minDisplayMs = 1000; // show loader at least 1s for nicer UX
+		const start = Date.now();
+
+		const update = () => {
+			loaded += 1;
+			const pct = Math.min(100, Math.round((loaded / total) * 100));
+			if (!isCancelled) setAssetsProgress(pct);
+			if (loaded >= total) {
+				const remaining = Math.max(0, minDisplayMs - (Date.now() - start));
+				setTimeout(() => {
+					if (!isCancelled) setAssetsReady(true);
+				}, remaining);
+			}
+		};
+
+		// biome-ignore lint/complexity/noForEach: <explanation>
+		assetUrls.forEach((src) => {
+			const img = new Image();
+			img.onload = update;
+			img.onerror = update;
+			img.src = src;
+		});
+
+		return () => {
+			isCancelled = true;
+		};
+	}, []);
 
 	useEffect(() => {
 		const container = containerRef.current;
@@ -280,7 +366,7 @@ function App() {
 			);
 		});
 
-		// Try to initialize audio after a short delay
+		// Try to initialize audio after a short delay (after assets ready)
 		const audioTimeout = setTimeout(() => {
 			initializeAudio();
 		}, 1000);
@@ -311,6 +397,10 @@ function App() {
 
 	return (
 		<div className="app mobile-forced">
+			{/* Loader overlay */}
+			{!assetsReady && (
+				<ThemedLoader progress={assetsProgress} done={assetsReady} />
+			)}
 			{/* Toast */}
 			{showToast && (
 				<output

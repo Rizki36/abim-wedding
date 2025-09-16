@@ -6,6 +6,80 @@
 	background-size: cover;
 }
 
+/* Loader overlay (themed with parchment + botanicals) */
+.loader-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 2000;
+	background: rgba(245, 237, 225, 0.88);
+	backdrop-filter: blur(1px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: opacity 400ms ease;
+}
+.loader-overlay.fade-out { opacity: 0; pointer-events: none; }
+
+.loader-leaf {
+	position: absolute;
+	width: 140px;
+	opacity: 0.95;
+}
+.loader-leaf.top { top: 0; }
+.loader-leaf.bottom { bottom: 0; }
+.loader-leaf.left { left: 0; }
+.loader-leaf.right { right: 0; }
+
+.loader-card {
+	position: relative;
+	width: min(86%, 380px);
+	background: #f9f3e7;
+	border-radius: 10px;
+	box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+	border: 1px solid #e8dcc7;
+	padding: 24px 18px 28px;
+	transform: rotate(-1.5deg);
+}
+.loader-stamp {
+	position: absolute;
+	left: -12px;
+	top: -20px;
+	width: 160px;
+	transform: rotate(-3deg);
+}
+.loader-title {
+	font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+	font-size: 28px;
+	font-weight: 600;
+	color: #8b5e34;
+	margin: 6px 0 16px;
+}
+.loader-progress {
+	height: 10px;
+	border: 1px dashed #c2a580;
+	background: #fff8ec;
+	border-radius: 999px;
+	overflow: hidden;
+}
+.loader-bar {
+	height: 100%;
+	background: linear-gradient(90deg, #c7812f, #8b5e34);
+	width: 0%;
+	transition: width 300ms ease;
+}
+.loader-percent {
+	margin-top: 8px;
+	font-variant-numeric: tabular-nums;
+	font-weight: 700;
+	color: #5b4634;
+}
+.loader-sub {
+	display: block;
+	margin-top: 2px;
+	font-size: 12px;
+	color: #6b5b4b;
+}
+
 /* Mobile-forced specific styles */
 .app.mobile-forced {
 	max-width: 480px !important;
