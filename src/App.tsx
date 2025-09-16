@@ -668,88 +668,75 @@ function App() {
 							/>
 
 							<div className="relative z-[9] mx-3">
-								<div className="flex flex-col gap-4">
-									<div className="w-full mx-auto">
-										<h4 className="m-0 mb-3 text-slate-800 text-lg font-semibold text-center pb-2">
-											Abi Manyu Fajrul Falah
-										</h4>
+								<div className="gift-card">
+									{/* Decorative corner leaves */}
+									<div className="gift-body">
+										<div className="gift-section">
+											<h4 className="gift-name">Abi Manyu Fajrul Falah</h4>
+											<div className="gift-row">
+												<span className="gift-label">BCA</span>
+												<button
+													type="button"
+													className="gift-copy"
+													onClick={() => copyToClipboard("1131466027")}
+													aria-label="Salin nomor rekening 1131466027"
+												>
+													<code id="abi-rek" className="gift-code">
+														1131466027
+													</code>
+													<span aria-hidden className="copy-icon" />
+												</button>
+											</div>
+											<div className="gift-row">
+												<span className="gift-label">
+													Gopay / ShopeePay / Ovo
+												</span>
+												<button
+													type="button"
+													className="gift-copy"
+													onClick={() => copyToClipboard("089667427861")}
+													aria-label="Salin nomor e-wallet 089667427861"
+												>
+													<code id="abi-ewallet" className="gift-code">
+														089667427861
+													</code>
+													<span aria-hidden className="copy-icon" />
+												</button>
+											</div>
+										</div>
 
-										<div className="mb-3 flex flex-col gap-2">
-											<span className="text-sm font-medium text-slate-700 mb-1">
-												BCA:
-											</span>
-											<button
-												type="button"
-												className="flex items-center gap-2 bg-gray-50 rounded-lg p-2 border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors text-left w-full"
-												onClick={() => copyToClipboard("1131466027")}
-												aria-label="Salin nomor rekening 1131466027"
-											>
-												<code
-													id="abi-rek"
-													className="flex-1 bg-transparent border-0 font-mono text-base font-semibold text-slate-800 tracking-wider min-w-0 overflow-hidden text-ellipsis whitespace-nowrap"
+										<div className="gift-section">
+											<h4 className="gift-name">Erica Surya</h4>
+											<div className="gift-row">
+												<span className="gift-label">BCA</span>
+												<button
+													type="button"
+													className="gift-copy"
+													onClick={() => copyToClipboard("1132423401")}
+													aria-label="Salin nomor rekening 1132423401"
 												>
-													1131466027
-												</code>
-											</button>
-										</div>
-										<div className="mb-3 flex flex-col gap-2">
-											<span className="text-sm font-medium text-slate-700 mb-1">
-												Gopay / ShopeePay / Ovo:
-											</span>
-											<button
-												type="button"
-												className="flex items-center gap-2 bg-gray-50 rounded-lg p-2 border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors text-left w-full"
-												onClick={() => copyToClipboard("089667427861")}
-												aria-label="Salin nomor e-wallet 089667427861"
-											>
-												<code
-													id="abi-ewallet"
-													className="flex-1 bg-transparent border-0 font-mono text-base font-semibold text-slate-800 tracking-wider min-w-0 overflow-hidden text-ellipsis whitespace-nowrap"
+													<code id="erica-rek" className="gift-code">
+														1132423401
+													</code>
+													<span aria-hidden className="copy-icon" />
+												</button>
+											</div>
+											<div className="gift-row">
+												<span className="gift-label">
+													Gopay / ShopeePay / Ovo
+												</span>
+												<button
+													type="button"
+													className="gift-copy"
+													onClick={() => copyToClipboard("085784622423")}
+													aria-label="Salin nomor e-wallet 085784622423"
 												>
-													089667427861
-												</code>
-											</button>
-										</div>
-									</div>
-									<div className="w-full mx-auto">
-										<h4 className="m-0 mb-3 text-slate-800 text-lg font-semibold text-center pb-2">
-											Erica Surya
-										</h4>
-										<div className="mb-3 flex flex-col gap-2">
-											<span className="text-sm font-medium text-slate-700 mb-1">
-												BCA:
-											</span>
-											<button
-												type="button"
-												className="flex items-center gap-2 bg-gray-50 rounded-lg p-2 border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors text-left w-full"
-												onClick={() => copyToClipboard("1132423401")}
-												aria-label="Salin nomor rekening 1132423401"
-											>
-												<code
-													id="erica-rek"
-													className="flex-1 bg-transparent border-0 font-mono text-base font-semibold text-slate-800 tracking-wider min-w-0 overflow-hidden text-ellipsis whitespace-nowrap"
-												>
-													1132423401
-												</code>
-											</button>
-										</div>
-										<div className="mb-3 flex flex-col gap-2">
-											<span className="text-sm font-medium text-slate-700 mb-1">
-												Gopay / ShopeePay / Ovo:
-											</span>
-											<button
-												type="button"
-												className="flex items-center gap-2 bg-gray-50 rounded-lg p-2 border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors text-left w-full"
-												onClick={() => copyToClipboard("085784622423")}
-												aria-label="Salin nomor e-wallet 085784622423"
-											>
-												<code
-													id="erica-ewallet"
-													className="flex-1 bg-transparent border-0 font-mono text-base font-semibold text-slate-800 tracking-wider min-w-0 overflow-hidden text-ellipsis whitespace-nowrap"
-												>
-													085784622423
-												</code>
-											</button>
+													<code id="erica-ewallet" className="gift-code">
+														085784622423
+													</code>
+													<span aria-hidden className="copy-icon" />
+												</button>
+											</div>
 										</div>
 									</div>
 								</div>

@@ -165,6 +165,25 @@
 /* Page 4 - RSVP */
 /* .page-4 {} */
 
+/* Gift card styling — themed parchment card */
+.gift-card {
+	position: relative;
+	background: #fbf3e6;
+	border: 1px solid #e7d8bf;
+	border-radius: 14px;
+	box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+	padding: 16px 14px;
+}
+.gift-body { display: grid; gap: 18px; }
+.gift-section { background: #fff9ef; border: 1px dashed #c7a67c; border-radius: 10px; padding: 12px; }
+.gift-name { margin: 0 0 8px 0; text-align: center; color: #5b4634; font-weight: 700; }
+.gift-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 8px; padding: 8px; border-radius: 8px; background: #fff; border: 1px solid #efe0c7; }
+.gift-label { font-size: 12px; color: #6b5b4b; white-space: nowrap; }
+.gift-copy { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px; background: transparent; border: 0; padding: 0; cursor: pointer; }
+.gift-code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-weight: 700; color: #3f3a34; letter-spacing: 0.05em; }
+.gift-copy:hover .gift-code { text-decoration: underline; }
+.copy-icon { width: 18px; height: 18px; background: #8b5e34; mask: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22%3E%3Crect x=%229%22 y=%229%22 width=%2213%22 height=%2213%22 rx=%222%22/%3E%3Cpath d=%22M5 15V5a2 2 0 0 1 2-2h10%22/%3E%3C/svg%3E') center / contain no-repeat; }
+
 
 /* Mobile Responsive - FORCED MOBILE VIEW */
 /* Override all desktop styles to force mobile layout */
