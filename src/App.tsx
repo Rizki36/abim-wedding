@@ -392,6 +392,13 @@ function App() {
 			passive: false,
 		});
 
+		// Prevent native pull-to-refresh by canceling vertical touchmove when at top
+		const preventPTR = (e: TouchEvent) => {
+			// We fully manage vertical swipes for page navigation
+			e.preventDefault();
+		};
+		container.addEventListener("touchmove", preventPTR, { passive: false });
+
 		// Initial animations
 		// const pageContents = document.querySelectorAll(".page-content");
 		// pageContents.forEach((content, index) => {
@@ -447,6 +454,7 @@ function App() {
 			container.removeEventListener("wheel", handleWheel);
 			container.removeEventListener("touchstart", handleTouchStart);
 			container.removeEventListener("touchend", handleTouchEnd);
+			container.removeEventListener("touchmove", preventPTR);
 		};
 	}, [currentPage, initializeAudio, audioInitialized, showSwipeGuide]);
 

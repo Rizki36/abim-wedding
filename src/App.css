@@ -6,6 +6,19 @@
 	background-size: cover;
 }
 
+/* Disable native pull-to-refresh and overscroll bounce */
+html,
+body {
+	height: 100%;
+	overflow: hidden; /* prevent page scrolling */
+	overscroll-behavior: none; /* block PTR on supported browsers */
+}
+
+#root,
+.app {
+	height: 100%;
+}
+
 /* Loader overlay (themed with parchment + botanicals) */
 .loader-overlay {
 	position: fixed;
@@ -344,9 +357,9 @@
 	margin: 0 auto !important;
 }
 
-/* Ensure touch interactions work properly */
+/* Ensure touch interactions are handled by JS (avoid PTR) */
 .page {
-	touch-action: pan-y !important;
+	touch-action: none !important; /* JS handles swipe, prevent native pan */
 }
 
 /* Force mobile layout for all elements */
