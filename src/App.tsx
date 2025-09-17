@@ -47,12 +47,15 @@ import page3_rumah_9 from "./assets/3_rumah/9. KEDIAMAN TXT_3 RUMAH.webp";
 // Page 4 assets
 import page4_1 from "./assets/4/1. DAUN_4.webp";
 import page4_2 from "./assets/4/2. DAUN_BAWAH_2_5.webp";
-import page4_3 from "./assets/4/3. AMPLOP DIGITAL TXT_4.webp";
-// import page4_4_1 from "./assets/4/4. USERNAME_ABI_4.webp";
-// import page4_4_2 from "./assets/4/4. USERNAME_ERICA_4.webp";
-import page4_6 from "./assets/4/6. TERIMAKASIH_4.webp";
+import page4_3 from "./assets/4/3. AMPLOP DIGITAL TXT_3_5.webp";
 // import page4_7_1 from "./assets/4/7. DAUN BG_1_4.webp";
 // import page4_7_2 from "./assets/4/7. DAUN BG_2_4.webp";
+
+// Page 5 assets
+import page5_4_1 from "./assets/5/4. USERNAME_ABI_4.webp";
+import page5_4_2 from "./assets/5/4. USERNAME_ERICA_4.webp";
+import page5_5 from "./assets/5/5. ART_4.webp";
+import page5_6 from "./assets/5/6. TERIMAKASIH_4.webp";
 
 // Timing and gesture tuning (keep in sync with CSS transition in App.css)
 const ANIMATION_MS = 900; // slide duration; must match .pages-container transition
@@ -215,7 +218,6 @@ function App() {
 			// Page 4
 			page4_1,
 			page4_3,
-			page4_6,
 		];
 
 		const total = assetUrls.length;
@@ -458,7 +460,7 @@ function App() {
 				{/* Page 1 */}
 				<div ref={page1Ref} className="page page-1">
 					<div className="page-content">
-						<div className="relative z-10 mt-4">
+						<div className="relative z-10 mt-12">
 							<img src={page1_6} alt="Character" className="w-full" />
 							<img src={page1_5} alt="Name" className="absolute bottom-0" />
 							<img
@@ -748,8 +750,11 @@ function App() {
 				{/* Page 4 */}
 				<div ref={page4Ref} className="page page-4">
 					<div className="page-content">
-						<img src={page4_6} alt="" className="flex-1 px-3 mt-[60px]" />
-						<img src={page4_3} alt="" className="w-[150px] mx-auto mt-5 mb-2" />
+						<img
+							src={page4_3}
+							alt=""
+							className="w-full max-w-[350px] px-5 mx-auto mt-28 mb-10"
+						/>
 
 						<div className="relative z-[9] mx-3">
 							<div className="gift-card">
@@ -834,7 +839,18 @@ function App() {
 				<div ref={page5Ref} className="page page-5">
 					<div className="page-content">
 						<img src={page4_1} alt="" className="absolute top-0" />
-						<img src={page4_2} alt="" className="absolute bottom-0" />
+						<img src={page5_6} alt="" className="mx-auto mt-12 max-w-[350px]" />
+						<img src={page5_5} alt="" className="absolute bottom-0" />
+						<img
+							src={page5_4_1}
+							alt=""
+							className="absolute w-[150px] bottom-0 right-0"
+						/>
+						<img
+							src={page5_4_2}
+							alt=""
+							className="absolute w-[150px] bottom-0 left-0"
+						/>
 					</div>
 				</div>
 			</div>
