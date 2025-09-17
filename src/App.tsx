@@ -215,7 +215,13 @@ function App() {
 			page3_rumah_9,
 			// Page 4
 			page4_1,
+			page4_2,
 			page4_3,
+			// Page 5
+			page5_4_1,
+			page5_4_2,
+			page5_5,
+			page5_6,
 		];
 
 		const total = assetUrls.length;
