@@ -48,8 +48,6 @@ import page3_rumah_9 from "./assets/3_rumah/9. KEDIAMAN TXT_3 RUMAH.webp";
 import page4_1 from "./assets/4/1. DAUN_4.webp";
 import page4_2 from "./assets/4/2. DAUN_BAWAH_2_5.webp";
 import page4_3 from "./assets/4/3. AMPLOP DIGITAL TXT_3_5.webp";
-// import page4_7_1 from "./assets/4/7. DAUN BG_1_4.webp";
-// import page4_7_2 from "./assets/4/7. DAUN BG_2_4.webp";
 
 // Page 5 assets
 import page5_4_1 from "./assets/5/4. USERNAME_ABI_4.webp";
