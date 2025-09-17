@@ -546,9 +546,10 @@ function App() {
 						<img
 							src={page2_0}
 							alt="Greeting"
-							className="w-[90%] mx-auto relative z-10 mt-8 mb-[-60px]"
+							className="px-5 mx-auto relative z-10 mt-8 mb-[-40px]"
 						/>
 						<img src={page2_5} alt="Background" className="w-3/4 mx-auto" />
+						<div className="bg-[#FED] h-[200px]" />
 						<img
 							src={page2_4_1}
 							alt="Father"
