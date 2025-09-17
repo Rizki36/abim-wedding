@@ -40,9 +40,9 @@ import page3_10 from "./assets/3/10. COLOR_3.webp";
 import page3_11 from "./assets/3/11. DATE_3.webp";
 import page3_12 from "./assets/3/12. DATE BG_3.webp";
 
-import page3_rumah_9 from "./assets/3_rumah/9. KEDIAMAN TXT_3 RUMAH.webp";
 import page3_rumah_5 from "./assets/3_rumah/5. BG TXT_3 RUMAH.webp";
 import page3_rumah_6 from "./assets/3_rumah/6. MAPS_3 RUMAH.webp";
+import page3_rumah_9 from "./assets/3_rumah/9. KEDIAMAN TXT_3 RUMAH.webp";
 
 // Page 4 assets
 import page4_1 from "./assets/4/1. DAUN_4.webp";
@@ -203,6 +203,9 @@ function App() {
 			page3_10,
 			page3_11,
 			page3_12,
+			page3_rumah_5,
+			page3_rumah_6,
+			page3_rumah_9,
 			// Page 4
 			page4_1,
 			page4_3,
