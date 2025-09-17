@@ -59,8 +59,8 @@ import page5_6 from "./assets/5/6. TERIMAKASIH_4.webp";
 const ANIMATION_MS = 900; // slide duration; must match .pages-container transition
 const MIN_SCROLL_INTERVAL_MS = 500; // cooldown between page changes
 const WHEEL_DEBOUNCE_MS = 50; // group small wheel pulses
-const SWIPE_MIN_DISTANCE_PX = 70; // was 100 — a bit more sensitive
-const SWIPE_MAX_DURATION_MS = 600; // was 500 — allow slightly slower swipes
+const SWIPE_MIN_DISTANCE_PX = 0; // was 100 — a bit more sensitive
+const SWIPE_MAX_DURATION_MS = 2000; // was 500 — allow slightly slower swipes
 
 function App() {
 	// Get name from URL query parameters
