@@ -393,21 +393,20 @@ function App() {
 		});
 
 		// Initial animations
-		const pageContents = document.querySelectorAll(".page-content");
-		pageContents.forEach((content, index) => {
-			const element = content as HTMLElement;
-			element.style.opacity = "0";
-			element.style.transform = "translateY(50px)";
-			element.style.transition = "opacity 1s ease, transform 1s ease";
-
-			setTimeout(
-				() => {
-					element.style.opacity = "1";
-					element.style.transform = "translateY(0)";
-				},
-				500 + index * 200,
-			);
-		});
+		// const pageContents = document.querySelectorAll(".page-content");
+		// pageContents.forEach((content, index) => {
+		// const element = content as HTMLElement;
+		// element.style.opacity = "0";
+		// element.style.transform = "translateY(50px)";
+		// element.style.transition = "opacity 1s ease, transform 1s ease";
+		// setTimeout(
+		// 	() => {
+		// 		element.style.opacity = "1";
+		// 		element.style.transform = "translateY(0)";
+		// 	},
+		// 	500 + index * 200,
+		// );
+		// });
 
 		// Try to initialize audio after a short delay (after assets ready)
 		const audioTimeout = setTimeout(() => {
