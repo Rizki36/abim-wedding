@@ -46,12 +46,10 @@ import page3_rumah_9 from "./assets/3_rumah/9. KEDIAMAN TXT_3 RUMAH.webp";
 
 // Page 4 assets
 import page4_1 from "./assets/4/1. DAUN_4.webp";
-// import page4_2_1 from "./assets/4/2. FG_1_4.webp";
-// import page4_2_2 from "./assets/4/2. FG_2_4.webp";
+import page4_2 from "./assets/4/2. DAUN_BAWAH_2_5.webp";
 import page4_3 from "./assets/4/3. AMPLOP DIGITAL TXT_4.webp";
 // import page4_4_1 from "./assets/4/4. USERNAME_ABI_4.webp";
 // import page4_4_2 from "./assets/4/4. USERNAME_ERICA_4.webp";
-// import page4_5 from "./assets/4/5. ART_4.webp";
 import page4_6 from "./assets/4/6. TERIMAKASIH_4.webp";
 // import page4_7_1 from "./assets/4/7. DAUN BG_1_4.webp";
 // import page4_7_2 from "./assets/4/7. DAUN BG_2_4.webp";
@@ -74,6 +72,7 @@ function App() {
 	const page2Ref = useRef<HTMLDivElement>(null);
 	const page3Ref = useRef<HTMLDivElement>(null);
 	const page4Ref = useRef<HTMLDivElement>(null);
+	const page5Ref = useRef<HTMLDivElement>(null);
 	const audioRef = useRef<HTMLAudioElement>(null);
 	const [currentPage, setCurrentPage] = useState(0);
 	const [isAudioPlaying, setIsAudioPlaying] = useState(false);
@@ -293,8 +292,8 @@ function App() {
 				const direction = e.deltaY > 0 ? 1 : -1;
 				let newPage = currentPage + direction;
 
-				// Clamp between 0 and 3
-				newPage = Math.max(0, Math.min(3, newPage));
+				// Clamp between 0 and 4 (5 pages)
+				newPage = Math.max(0, Math.min(4, newPage));
 
 				if (newPage !== currentPage) {
 					setCurrentPage(newPage);
@@ -341,7 +340,7 @@ function App() {
 				const direction = diff > 0 ? 1 : -1;
 				let newPage = currentPage + direction;
 
-				newPage = Math.max(0, Math.min(3, newPage));
+				newPage = Math.max(0, Math.min(4, newPage));
 
 				if (newPage !== currentPage) {
 					setCurrentPage(newPage);
@@ -459,25 +458,21 @@ function App() {
 				{/* Page 1 */}
 				<div ref={page1Ref} className="page page-1">
 					<div className="page-content">
-						<div className="absolute bottom-[300px] left-0 right-0">
-							<div className="relative">
-								<img src={page1_6} alt="Character" className="w-full" />
-								<img src={page1_5} alt="Name" className="absolute bottom-0" />
-								<img
-									src={page1_4}
-									alt="Date"
-									className="absolute w-[200px] top-[100px]"
-								/>
-							</div>
+						<div className="relative z-10 mt-4">
+							<img src={page1_6} alt="Character" className="w-full" />
+							<img src={page1_5} alt="Name" className="absolute bottom-0" />
+							<img
+								src={page1_4}
+								alt="Date"
+								className="absolute w-[200px] top-[100px]"
+							/>
 						</div>
 
-						<div className="absolute bottom-[150px]">
-							<div className="relative w-3/4 mx-auto">
-								<img src={page1_3} alt="Stamp" />
-								<div className="absolute inset-0 flex flex-col items-center justify-center p-3 rotate-[-2deg]">
-									<div>{name}</div>
-									<div>{event}</div>
-								</div>
+						<div className="relative w-3/4 mx-auto">
+							<img src={page1_3} alt="Stamp" />
+							<div className="absolute inset-0 flex flex-col items-center justify-center p-3 rotate-[-2deg]">
+								<div>{name}</div>
+								<div>{event}</div>
 							</div>
 						</div>
 
@@ -519,10 +514,11 @@ function App() {
 				<div ref={page2Ref} className="page page-2">
 					<div className="page-content">
 						<img
-							src={page2_5}
-							alt="Background"
-							className="absolute bottom-[100px] w-3/4 left-0 right-0 mx-auto"
+							src={page2_0}
+							alt="Greeting"
+							className="w-[90%] mx-auto relative z-10 mt-8 mb-[-60px]"
 						/>
+						<img src={page2_5} alt="Background" className="w-3/4 mx-auto" />
 						<img
 							src={page2_4_1}
 							alt="Father"
@@ -568,12 +564,6 @@ function App() {
 							alt=""
 							className="absolute bottom-0 left-0 w-[120px]"
 						/>
-
-						<img
-							src={page2_0}
-							alt="Greeting"
-							className="absolute top-[50px] w-[90%] mx-auto inset-x-0"
-						/>
 					</div>
 				</div>
 
@@ -581,7 +571,7 @@ function App() {
 				<div ref={page3Ref} className="page page-3">
 					{location === "rumah" && (
 						<div className="page-content">
-							<div className="absolute top-[40px] left-0 right-0 z-10">
+							<div className="mt-[40px] relative z-10">
 								<img src={page3_1} alt="" className="w-[200px] mx-auto" />
 								<div className="relative mx-auto w-[350px]">
 									<img
@@ -604,45 +594,38 @@ function App() {
 								</div>
 							</div>
 
-							<div className="absolute bottom-[130px]">
+							<div className="relative mt-[-20px]">
+								<img
+									src={page3_rumah_5}
+									alt=""
+									className="w-full mx-auto mb-[-50px]"
+								/>
 								<div className="relative">
+									<img src={page3_5} alt="" className="relative" />
 									<img
-										src={page3_rumah_5}
+										src={page3_4_1}
 										alt=""
-										className="w-full mx-auto mb-[-50px]"
+										className="absolute left-0 bottom-[150px] h-[50px]"
 									/>
-									<div className="relative">
-										<img src={page3_5} alt="" className="relative" />
-										<img
-											src={page3_4_1}
-											alt=""
-											className="absolute left-0 bottom-[150px] h-[50px]"
-										/>
-										<img
-											src={page3_4_2}
-											alt=""
-											className="absolute right-0 bottom-[150px] h-[50px]"
-										/>
-									</div>
-
 									<img
-										src={page3_rumah_6}
+										src={page3_4_2}
 										alt=""
-										className="w-[180px] mx-auto mt-[10px]"
+										className="absolute right-0 bottom-[150px] h-[50px]"
 									/>
 								</div>
 							</div>
 
-							<img
-								src={page3_3_1}
-								alt=""
-								className="absolute bottom-0 left-0 w-[170px]"
-							/>
-							<img
-								src={page3_3_2}
-								alt=""
-								className="absolute bottom-0 right-0 w-[150px]"
-							/>
+							<div className="relative flex items-center justify-between mt-[-100px]">
+								<img src={page3_3_1} alt="" className="w-[170px]" />
+								<div>
+									<img
+										src={page3_rumah_6}
+										alt=""
+										className="absolute -z-10 inset-0 w-[120px] h-auto mx-auto mt-[80px]"
+									/>
+								</div>
+								<img src={page3_3_2} alt="" className="w-[150px]" />
+							</div>
 
 							<img
 								src={page3_2_1}
@@ -654,7 +637,6 @@ function App() {
 								alt=""
 								className="absolute bottom-0 left-0 w-[200px]"
 							/>
-
 							<img
 								src={page1_1_1}
 								alt=""
@@ -669,8 +651,12 @@ function App() {
 					)}
 					{location === "gedung" && (
 						<div className="page-content">
-							<div className="absolute top-[40px] left-0 right-0 z-10">
-								<img src={page3_1} alt="" className="w-[200px] mx-auto" />
+							<div className="mt-[40px] z-10">
+								<img
+									src={page3_1}
+									alt=""
+									className="w-[200px] mx-auto relative z-10"
+								/>
 								<div className="relative mx-auto w-[350px]">
 									<img
 										src={page3_11}
@@ -692,55 +678,47 @@ function App() {
 								</div>
 							</div>
 
-							<div className="absolute bottom-[150px]">
+							<div className="relative">
+								<img
+									src={page3_8}
+									alt=""
+									className="w-[250px] mx-auto mb-[-20px]"
+								/>
 								<div className="relative">
+									<img src={page3_5} alt="" className="relative" />
 									<img
-										src={page3_8}
+										src={page3_4_1}
 										alt=""
-										className="w-[250px] mx-auto mb-[-20px]"
-									/>
-									<div className="relative">
-										<img src={page3_5} alt="" className="relative" />
-										<img
-											src={page3_4_1}
-											alt=""
-											className="absolute left-0 bottom-[150px] h-[50px]"
-										/>
-										<img
-											src={page3_4_2}
-											alt=""
-											className="absolute right-0 bottom-[150px] h-[50px]"
-										/>
-									</div>
-
-									<img
-										src={page3_7}
-										alt=""
-										className="w-[250px] mx-auto mt-[-20px]"
+										className="absolute left-0 bottom-[150px] h-[50px]"
 									/>
 									<img
-										src={page3_6}
+										src={page3_4_2}
 										alt=""
-										className="w-[290px] mx-auto mt-[-70px] pl-[20px]"
-									/>
-									<img
-										src={page3_10}
-										alt=""
-										className="w-[180px] mx-auto mt-[10px]"
+										className="absolute right-0 bottom-[150px] h-[50px]"
 									/>
 								</div>
+
+								<img
+									src={page3_7}
+									alt=""
+									className="w-[250px] mx-auto mt-[-20px]"
+								/>
+								<img
+									src={page3_6}
+									alt=""
+									className="w-[290px] mx-auto mt-[-70px] pl-[20px]"
+								/>
+								<img
+									src={page3_10}
+									alt=""
+									className="w-[180px] mx-auto mt-[10px]"
+								/>
 							</div>
 
-							<img
-								src={page3_3_1}
-								alt=""
-								className="absolute bottom-0 left-0 w-[170px]"
-							/>
-							<img
-								src={page3_3_2}
-								alt=""
-								className="absolute bottom-0 right-0 w-[150px]"
-							/>
+							<div className="flex justify-between mt-[-150px]">
+								<img src={page3_3_1} alt="" className="left-0 w-[170px]" />
+								<img src={page3_3_2} alt="" className="right-0 w-[150px]" />
+							</div>
 
 							<img
 								src={page3_2_1}
@@ -770,100 +748,93 @@ function App() {
 				{/* Page 4 */}
 				<div ref={page4Ref} className="page page-4">
 					<div className="page-content">
-						{/* <img src={page4_7} alt="" className="absolute" /> */}
-						{/* <img src={page4_5} alt="" className="absolute bottom-0" /> */}
-						{/* <img src={page4_4} alt="" className="absolute" /> */}
-						<div className="mt-[60px]">
-							<div className="flex px-3">
-								{/* <img src={page4_7_2} alt="" className="" /> */}
-								<img src={page4_6} alt="" className="flex-1" />
-								{/* <img src={page4_7_1} alt="" className="" /> */}
-							</div>
-							<img
-								src={page4_3}
-								alt=""
-								className="w-[150px] mx-auto mt-5 mb-2"
-							/>
+						<img src={page4_6} alt="" className="flex-1 px-3 mt-[60px]" />
+						<img src={page4_3} alt="" className="w-[150px] mx-auto mt-5 mb-2" />
 
-							<div className="relative z-[9] mx-3">
-								<div className="gift-card">
-									{/* Decorative corner leaves */}
-									<div className="gift-body">
-										<div className="gift-section">
-											<h4 className="gift-name">Abi Manyu Fajrul Falah</h4>
-											<div className="gift-row">
-												<span className="gift-label">BCA</span>
-												<button
-													type="button"
-													className="gift-copy"
-													onClick={() => copyToClipboard("1131466027")}
-													aria-label="Salin nomor rekening 1131466027"
-												>
-													<code id="abi-rek" className="gift-code">
-														1131466027
-													</code>
-													<span aria-hidden className="copy-icon" />
-												</button>
-											</div>
-											<div className="gift-row">
-												<span className="gift-label">
-													Gopay / ShopeePay / Ovo
-												</span>
-												<button
-													type="button"
-													className="gift-copy"
-													onClick={() => copyToClipboard("089667427861")}
-													aria-label="Salin nomor e-wallet 089667427861"
-												>
-													<code id="abi-ewallet" className="gift-code">
-														089667427861
-													</code>
-													<span aria-hidden className="copy-icon" />
-												</button>
-											</div>
+						<div className="relative z-[9] mx-3">
+							<div className="gift-card">
+								{/* Decorative corner leaves */}
+								<div className="gift-body">
+									<div className="gift-section">
+										<h4 className="gift-name">Abi Manyu Fajrul Falah</h4>
+										<div className="gift-row">
+											<span className="gift-label">BCA</span>
+											<button
+												type="button"
+												className="gift-copy"
+												onClick={() => copyToClipboard("1131466027")}
+												aria-label="Salin nomor rekening 1131466027"
+											>
+												<code id="abi-rek" className="gift-code">
+													1131466027
+												</code>
+												<span aria-hidden className="copy-icon" />
+											</button>
 										</div>
+										<div className="gift-row">
+											<span className="gift-label">
+												Gopay / ShopeePay / Ovo
+											</span>
+											<button
+												type="button"
+												className="gift-copy"
+												onClick={() => copyToClipboard("089667427861")}
+												aria-label="Salin nomor e-wallet 089667427861"
+											>
+												<code id="abi-ewallet" className="gift-code">
+													089667427861
+												</code>
+												<span aria-hidden className="copy-icon" />
+											</button>
+										</div>
+									</div>
 
-										<div className="gift-section">
-											<h4 className="gift-name">Erica Surya</h4>
-											<div className="gift-row">
-												<span className="gift-label">BCA</span>
-												<button
-													type="button"
-													className="gift-copy"
-													onClick={() => copyToClipboard("1132423401")}
-													aria-label="Salin nomor rekening 1132423401"
-												>
-													<code id="erica-rek" className="gift-code">
-														1132423401
-													</code>
-													<span aria-hidden className="copy-icon" />
-												</button>
-											</div>
-											<div className="gift-row">
-												<span className="gift-label">
-													Gopay / ShopeePay / Ovo
-												</span>
-												<button
-													type="button"
-													className="gift-copy"
-													onClick={() => copyToClipboard("085784622423")}
-													aria-label="Salin nomor e-wallet 085784622423"
-												>
-													<code id="erica-ewallet" className="gift-code">
-														085784622423
-													</code>
-													<span aria-hidden className="copy-icon" />
-												</button>
-											</div>
+									<div className="gift-section">
+										<h4 className="gift-name">Erica Surya</h4>
+										<div className="gift-row">
+											<span className="gift-label">BCA</span>
+											<button
+												type="button"
+												className="gift-copy"
+												onClick={() => copyToClipboard("1132423401")}
+												aria-label="Salin nomor rekening 1132423401"
+											>
+												<code id="erica-rek" className="gift-code">
+													1132423401
+												</code>
+												<span aria-hidden className="copy-icon" />
+											</button>
+										</div>
+										<div className="gift-row">
+											<span className="gift-label">
+												Gopay / ShopeePay / Ovo
+											</span>
+											<button
+												type="button"
+												className="gift-copy"
+												onClick={() => copyToClipboard("085784622423")}
+												aria-label="Salin nomor e-wallet 085784622423"
+											>
+												<code id="erica-ewallet" className="gift-code">
+													085784622423
+												</code>
+												<span aria-hidden className="copy-icon" />
+											</button>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						{/* <img src={page4_2} alt="" className="absolute" /> */}
 						<img src={page4_1} alt="" className="absolute top-0" />
+						<img src={page4_2} alt="" className="absolute bottom-0" />
+					</div>
+				</div>
 
-						{/* Gift card */}
+				{/* Page 5 (Empty placeholder) */}
+				<div ref={page5Ref} className="page page-5">
+					<div className="page-content">
+						<img src={page4_1} alt="" className="absolute top-0" />
+						<img src={page4_2} alt="" className="absolute bottom-0" />
 					</div>
 				</div>
 			</div>
