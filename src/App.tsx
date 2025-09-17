@@ -546,30 +546,30 @@ function App() {
 						<img
 							src={page2_0}
 							alt="Greeting"
-							className="px-5 mx-auto relative z-10 mt-8 mb-[-40px]"
+							className="px-5 mx-auto w-[350px] relative z-10 mt-18 mb-4"
 						/>
-						<img src={page2_5} alt="Background" className="w-3/4 mx-auto" />
-						<div className="bg-[#FED] h-[200px]" />
+						<img src={page2_5} alt="Background" className="w-[300px] mx-auto" />
+						<div className="bg-[#FED] h-[500px] w-[300px] mx-auto" />
 						<img
 							src={page2_4_1}
 							alt="Father"
-							className="absolute bottom-[280px] right-0 w-1/4"
+							className="absolute bottom-[280px] right-0 w-[100px]"
 						/>
 						<img
 							src={page2_4_2}
 							alt="Father"
-							className="absolute bottom-[280px] left-0 w-1/4"
+							className="absolute bottom-[280px] left-0 w-[100px]"
 						/>
 
 						<img
 							src={page2_3_1}
 							alt="Mother"
-							className="absolute bottom-0 left-0 w-1/2"
+							className="absolute bottom-0 left-0 w-[200px]"
 						/>
 						<img
 							src={page2_3_2}
 							alt="Mother"
-							className="absolute bottom-0 right-0 w-1/2"
+							className="absolute bottom-0 right-0 w-[200px]"
 						/>
 
 						<img src={page2_2} alt="Art" className="absolute bottom-0" />
@@ -742,11 +742,11 @@ function App() {
 								<img
 									src={page3_10}
 									alt=""
-									className="w-[180px] mx-auto mt-[10px] relative z-10"
+									className="w-[180px] mx-auto mt-[10px] relative"
 								/>
 							</div>
 
-							<div className="absolute bottom-0 flex justify-between inset-x-0 -z-10">
+							<div className="absolute bottom-0 flex justify-between inset-x-0">
 								<img src={page3_3_1} alt="" className="left-0 w-[170px]" />
 								<img src={page3_3_2} alt="" className="right-0 w-[150px]" />
 							</div>
