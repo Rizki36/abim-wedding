@@ -264,6 +264,60 @@
 		center / contain no-repeat;
 }
 
+/* Swipe down guide */
+.swipe-guide {
+	position: fixed;
+	left: 50%;
+	bottom: 18px;
+	transform: translateX(-50%);
+	z-index: 1000;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity .4s ease, transform .4s ease;
+}
+.swipe-guide.show {
+	opacity: 1;
+	transform: translateX(-50%) translateY(0);
+}
+.swipe-guide.hide {
+	opacity: 0;
+	transform: translateX(-50%) translateY(10px);
+}
+.swipe-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	background: rgba(249, 243, 230, 0.92);
+	border: 1px dashed #c7a67c;
+	color: #5b4634;
+	padding: 8px 12px;
+	border-radius: 999px;
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+.swipe-text {
+	font-size: 13px;
+	font-weight: 700;
+}
+.swipe-icon {
+	width: 18px;
+	height: 18px;
+	background: #8b5e34;
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cpath d='M12 5v14M5 12l7 7 7-7'/%3E%3C/svg%3E")
+		center / contain no-repeat;
+	animation: bounce-down 1.8s ease-in-out infinite;
+}
+@keyframes bounce-down {
+	0%,
+	100% {
+		transform: translateY(0);
+		opacity: 0.9;
+	}
+	50% {
+		transform: translateY(6px);
+		opacity: 1;
+	}
+}
+
 /* Mobile Responsive - FORCED MOBILE VIEW */
 /* Override all desktop styles to force mobile layout */
 .story-content {

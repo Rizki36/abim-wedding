@@ -3,6 +3,7 @@ import "./App.css";
 import backsoundUrl from "./assets/backsound.mp3";
 import backgroundGif from "./assets/background.gif";
 import ThemedLoader from "./components/ThemedLoader";
+import SwipeDownGuide from "./components/SwipeDownGuide";
 
 // Page 1 assets
 import page1_1_1 from "./assets/1/1. DAUN_ATAS KANAN.webp";
@@ -86,6 +87,10 @@ function App() {
 	const [showToast, setShowToast] = useState(false);
 	const toastTimeoutRef = useRef<number | null>(null);
 
+	// Swipe guide state
+	const [showSwipeGuide, setShowSwipeGuide] = useState(false);
+	const swipeGuideTimeoutRef = useRef<number | null>(null);
+
 	const triggerToast = useCallback((message: string) => {
 		setToastMessage(message);
 		setShowToast(true);
@@ -133,6 +138,9 @@ function App() {
 		return () => {
 			if (toastTimeoutRef.current) {
 				clearTimeout(toastTimeoutRef.current);
+			}
+			if (swipeGuideTimeoutRef.current) {
+				clearTimeout(swipeGuideTimeoutRef.current);
 			}
 		};
 	}, []);
@@ -269,6 +277,14 @@ function App() {
 		let lastScrollTime = 0;
 
 		// Handle scroll events for page navigation
+		const hideGuide = () => {
+			if (showSwipeGuide) setShowSwipeGuide(false);
+			if (swipeGuideTimeoutRef.current) {
+				clearTimeout(swipeGuideTimeoutRef.current);
+				swipeGuideTimeoutRef.current = null;
+			}
+		};
+
 		const handleWheel = (e: WheelEvent) => {
 			e.preventDefault();
 
@@ -304,6 +320,7 @@ function App() {
 				if (newPage !== currentPage) {
 					setCurrentPage(newPage);
 					animateToPage(newPage);
+					hideGuide();
 				}
 
 				// Reset scrolling flag after animation completes
@@ -351,6 +368,7 @@ function App() {
 				if (newPage !== currentPage) {
 					setCurrentPage(newPage);
 					animateToPage(newPage);
+					hideGuide();
 				}
 
 				setTimeout(() => {
@@ -396,11 +414,20 @@ function App() {
 			initializeAudio();
 		}, 1000);
 
+		// Show swipe guide shortly after load on first page only
+		if (currentPage === 0 && !showSwipeGuide) {
+			swipeGuideTimeoutRef.current = window.setTimeout(() => {
+				setShowSwipeGuide(true);
+			}, 800); // appear a bit after UI settles
+		}
+
 		// Add click listener to start audio on first user interaction
 		const handleFirstClick = () => {
 			if (!audioInitialized) {
 				initializeAudio();
 			}
+			// also hide the guide on first interaction
+			if (showSwipeGuide) setShowSwipeGuide(false);
 			document.removeEventListener("click", handleFirstClick);
 		};
 
@@ -413,12 +440,16 @@ function App() {
 			if (audioTimeout) {
 				clearTimeout(audioTimeout);
 			}
+			if (swipeGuideTimeoutRef.current) {
+				clearTimeout(swipeGuideTimeoutRef.current);
+				swipeGuideTimeoutRef.current = null;
+			}
 			document.removeEventListener("click", handleFirstClick);
 			container.removeEventListener("wheel", handleWheel);
 			container.removeEventListener("touchstart", handleTouchStart);
 			container.removeEventListener("touchend", handleTouchEnd);
 		};
-	}, [currentPage, initializeAudio, audioInitialized]);
+	}, [currentPage, initializeAudio, audioInitialized, showSwipeGuide]);
 
 	return (
 		<div className="app mobile-forced">
@@ -460,6 +491,11 @@ function App() {
 				</span>
 			</button>
 
+			{/* Swipe down guide (first page only) */}
+			{currentPage === 0 && (
+				<SwipeDownGuide visible={showSwipeGuide} message="Geser ke bawah" />
+			)}
+
 			<div ref={containerRef} className="pages-container">
 				{/* Page 1 */}
 				<div ref={page1Ref} className="page page-1">
@@ -481,17 +517,6 @@ function App() {
 								<div>{event}</div>
 							</div>
 						</div>
-
-						{/* <img
-							src={page1_2_1}
-							alt="Foreground"
-							className="absolute right-0 top-0 bottom-0 w-[50px]"
-						/> */}
-						{/* <img
-							src={page1_2_2}
-							alt="Foreground"
-							className="absolute left-0 top-0 bottom-0 w-[50px]"
-						/> */}
 
 						<img
 							src={page1_1_1}
