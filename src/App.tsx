@@ -56,6 +56,13 @@ import page4_6 from "./assets/4/6. TERIMAKASIH_4.webp";
 // import page4_7_1 from "./assets/4/7. DAUN BG_1_4.webp";
 // import page4_7_2 from "./assets/4/7. DAUN BG_2_4.webp";
 
+// Timing and gesture tuning (keep in sync with CSS transition in App.css)
+const ANIMATION_MS = 900; // slide duration; must match .pages-container transition
+const MIN_SCROLL_INTERVAL_MS = 500; // cooldown between page changes
+const WHEEL_DEBOUNCE_MS = 50; // group small wheel pulses
+const SWIPE_MIN_DISTANCE_PX = 70; // was 100 — a bit more sensitive
+const SWIPE_MAX_DURATION_MS = 600; // was 500 — allow slightly slower swipes
+
 function App() {
 	// Get name from URL query parameters
 	const urlParams = new URLSearchParams(window.location.search);
@@ -255,7 +262,6 @@ function App() {
 		let isScrolling = false;
 		let scrollTimeout: number | null = null;
 		let lastScrollTime = 0;
-		const minScrollInterval = 800; // Minimum time between page changes
 
 		// Handle scroll events for page navigation
 		const handleWheel = (e: WheelEvent) => {
@@ -264,7 +270,10 @@ function App() {
 			const currentTime = Date.now();
 
 			// Prevent rapid scrolling
-			if (isScrolling || currentTime - lastScrollTime < minScrollInterval) {
+			if (
+				isScrolling ||
+				currentTime - lastScrollTime < MIN_SCROLL_INTERVAL_MS
+			) {
 				return;
 			}
 
@@ -295,8 +304,8 @@ function App() {
 				// Reset scrolling flag after animation completes
 				setTimeout(() => {
 					isScrolling = false;
-				}, 1200); // Match animation duration
-			}, 100); // Small delay to ensure deliberate action
+				}, ANIMATION_MS + 100); // a touch longer than animation
+			}, WHEEL_DEBOUNCE_MS); // Small delay to ensure deliberate action
 		};
 
 		// Handle touch events for mobile
@@ -315,11 +324,14 @@ function App() {
 			const touchDuration = Date.now() - touchStartTime;
 
 			// Require larger swipe distance and reasonable swipe speed
-			if (Math.abs(diff) > 100 && touchDuration < 500) {
+			if (
+				Math.abs(diff) > SWIPE_MIN_DISTANCE_PX &&
+				touchDuration < SWIPE_MAX_DURATION_MS
+			) {
 				const currentTime = Date.now();
 
 				// Prevent rapid touch navigation
-				if (currentTime - lastScrollTime < minScrollInterval) {
+				if (currentTime - lastScrollTime < MIN_SCROLL_INTERVAL_MS) {
 					return;
 				}
 
@@ -338,7 +350,7 @@ function App() {
 
 				setTimeout(() => {
 					isScrolling = false;
-				}, 1200);
+				}, ANIMATION_MS + 100);
 			}
 		};
 

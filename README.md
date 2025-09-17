@@ -4,8 +4,6 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 ## Expanding the ESLint configuration
 
@@ -67,3 +65,24 @@ export default tseslint.config([
   },
 ])
 ```
+
+## Scroll sensitivity
+
+This project uses full-page vertical slides. Sensitivity and timing are controlled by a few constants near the top of `src/App.tsx`:
+
+- `ANIMATION_MS` — slide transition duration (keep in sync with `.pages-container { transition }` in `src/App.css`).
+- `MIN_SCROLL_INTERVAL_MS` — cooldown between page changes; lower = more sensitive to consecutive scrolls.
+- `WHEEL_DEBOUNCE_MS` — groups small mouse wheel pulses; lower = reacts quicker.
+- `SWIPE_MIN_DISTANCE_PX` and `SWIPE_MAX_DURATION_MS` — mobile swipe distance and time thresholds.
+
+Example defaults:
+
+```ts
+const ANIMATION_MS = 900;
+const MIN_SCROLL_INTERVAL_MS = 500;
+const WHEEL_DEBOUNCE_MS = 50;
+const SWIPE_MIN_DISTANCE_PX = 70;
+const SWIPE_MAX_DURATION_MS = 600;
+```
+
+Adjust these values to fine‑tune the experience.

@@ -92,7 +92,8 @@
 	height: 400vh; /* 4 pages × 100vh each */
 	width: 100%;
 	position: relative;
-	transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+	/* Keep in sync with ANIMATION_MS in App.tsx */
+	transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .page {
