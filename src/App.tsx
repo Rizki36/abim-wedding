@@ -682,7 +682,7 @@ function App() {
 					)}
 					{location === "gedung" && (
 						<div className="page-content">
-							<div className="mt-[40px] z-10">
+							<div className="mt-[30px] z-10">
 								<img
 									src={page3_1}
 									alt=""
@@ -709,7 +709,7 @@ function App() {
 								</div>
 							</div>
 
-							<div className="relative">
+							<div className="relative mt-[-20px]">
 								<img
 									src={page3_8}
 									alt=""
@@ -742,11 +742,11 @@ function App() {
 								<img
 									src={page3_10}
 									alt=""
-									className="w-[180px] mx-auto mt-[10px]"
+									className="w-[180px] mx-auto mt-[10px] relative z-10"
 								/>
 							</div>
 
-							<div className="flex justify-between mt-[-150px]">
+							<div className="absolute bottom-0 flex justify-between inset-x-0 -z-10">
 								<img src={page3_3_1} alt="" className="left-0 w-[170px]" />
 								<img src={page3_3_2} alt="" className="right-0 w-[150px]" />
 							</div>
