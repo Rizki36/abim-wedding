@@ -40,6 +40,7 @@ import page3_9 from "./assets/3/9. LOC_3.webp";
 import page3_10 from "./assets/3/10. COLOR_3.webp";
 import page3_11 from "./assets/3/11. DATE_3.webp";
 import page3_12 from "./assets/3/12. DATE BG_3.webp";
+import page3_button_location from "./assets/3/buka lokasi button.webp";
 
 import page3_rumah_5 from "./assets/3_rumah/5. BG TXT_3 RUMAH.webp";
 import page3_rumah_6 from "./assets/3_rumah/6. MAPS_3 RUMAH.webp";
@@ -77,7 +78,7 @@ function App() {
 	const page5Ref = useRef<HTMLDivElement>(null);
 	const audioRef = useRef<HTMLAudioElement>(null);
 	const [currentPage, setCurrentPage] = useState(0);
-	const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+	const [isAudioPlaying, setIsAudioPlaying] = useState(true);
 	const [audioInitialized, setAudioInitialized] = useState(false);
 	// Loading state
 	const [assetsProgress, setAssetsProgress] = useState(0);
@@ -612,25 +613,31 @@ function App() {
 						<div className="page-content">
 							<div className="mt-[40px] relative z-10">
 								<img src={page3_1} alt="" className="w-[200px] mx-auto" />
-								<div className="relative mx-auto w-[350px]">
-									<img
-										src={page3_11}
-										alt=""
-										className="absolute left-0 top-0 bottom-0 w-[150px]"
-									/>
-									<img
-										src={page3_9}
-										alt=""
-										className="absolute top-0 right-0 w-[60px]"
-									/>
-									<a
-										href="https://maps.app.goo.gl/xZeZFosWqoRB5nuo7"
-										target="_blank"
-										rel="noopener noreferrer"
-									>
+								<a
+									href="https://maps.app.goo.gl/xZeZFosWqoRB5nuo7"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<div className="relative mx-auto w-[350px]">
+										<img
+											src={page3_11}
+											alt=""
+											className="absolute left-0 top-0 bottom-0 w-[150px]"
+										/>
+										<img
+											src={page3_9}
+											alt=""
+											className="absolute top-0 right-0 w-[60px]"
+										/>
+										<img
+											src={page3_button_location}
+											alt=""
+											className="absolute bottom-[70px] right-[65px] w-[120px]"
+										/>
+
 										<img src={page3_rumah_9} alt="" className="w-full" />
-									</a>
-								</div>
+									</div>
+								</a>
 							</div>
 
 							<div className="relative mt-[-20px]">
@@ -696,25 +703,31 @@ function App() {
 									alt=""
 									className="w-[200px] mx-auto relative z-10"
 								/>
-								<div className="relative mx-auto w-[350px]">
-									<img
-										src={page3_11}
-										alt=""
-										className="absolute left-0 top-0 bottom-0 w-[150px]"
-									/>
-									<img
-										src={page3_9}
-										alt=""
-										className="absolute top-0 right-0 w-[60px]"
-									/>
-									<a
-										href="https://maps.app.goo.gl/AGDtYprSn8Xo9KkY6"
-										target="_blank"
-										rel="noopener noreferrer"
-									>
+								<a
+									href="https://maps.app.goo.gl/AGDtYprSn8Xo9KkY6"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<div className="relative mx-auto w-[350px]">
+										<img
+											src={page3_11}
+											alt=""
+											className="absolute left-0 top-0 bottom-0 w-[150px]"
+										/>
+										<img
+											src={page3_9}
+											alt=""
+											className="absolute top-0 right-0 w-[60px]"
+										/>
+										<img
+											src={page3_button_location}
+											alt=""
+											className="absolute bottom-[70px] right-[65px] w-[120px]"
+										/>
+
 										<img src={page3_12} alt="" className="w-full" />
-									</a>
-								</div>
+									</div>
+								</a>
 							</div>
 
 							<div className="relative mt-[-20px]">
