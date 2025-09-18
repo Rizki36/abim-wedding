@@ -4,6 +4,7 @@ import backsoundUrl from "./assets/backsound.mp3";
 import backgroundGif from "./assets/background.gif";
 import ThemedLoader from "./components/ThemedLoader";
 import SwipeDownGuide from "./components/SwipeDownGuide";
+import OpenInvitation from "./components/OpenInvitation";
 
 // Page 1 assets
 import page1_1_1 from "./assets/1/1. DAUN_ATAS KANAN.webp";
@@ -69,6 +70,7 @@ function App() {
 	const urlParams = new URLSearchParams(window.location.search);
 	const name = urlParams.get("name") || "Guest";
 	const event = urlParams.get("event") || "Akad & Resepsi";
+	const couple = urlParams.get("couple") || "Erica & Abim";
 	const location = urlParams.get("location") || "gedung"; // gedung | rumah
 	const containerRef = useRef<HTMLDivElement>(null);
 	const page1Ref = useRef<HTMLDivElement>(null);
@@ -80,6 +82,7 @@ function App() {
 	const [currentPage, setCurrentPage] = useState(0);
 	const [isAudioPlaying, setIsAudioPlaying] = useState(true);
 	const [audioInitialized, setAudioInitialized] = useState(false);
+	const [invitationOpened, setInvitationOpened] = useState(false);
 	// Loading state
 	const [assetsProgress, setAssetsProgress] = useState(0);
 	const [assetsReady, setAssetsReady] = useState(false);
@@ -180,6 +183,14 @@ function App() {
 		}
 	};
 
+	const openInvitation = async () => {
+		// Start audio on explicit user action
+		if (!audioInitialized) {
+			await initializeAudio();
+		}
+		setInvitationOpened(true);
+	};
+
 	// Preload images and essential assets
 	useEffect(() => {
 		let isCancelled = false;
@@ -271,6 +282,11 @@ function App() {
 	useEffect(() => {
 		const container = containerRef.current;
 		if (!container) return;
+
+		// Disable interactions until invitation is opened
+		if (!invitationOpened) {
+			return;
+		}
 
 		// More robust scroll control
 		let isScrolling = false;
@@ -457,13 +473,28 @@ function App() {
 			container.removeEventListener("touchend", handleTouchEnd);
 			container.removeEventListener("touchmove", preventPTR);
 		};
-	}, [currentPage, initializeAudio, audioInitialized, showSwipeGuide]);
+	}, [
+		currentPage,
+		initializeAudio,
+		audioInitialized,
+		showSwipeGuide,
+		invitationOpened,
+	]);
 
 	return (
 		<div className="app mobile-forced">
 			{/* Loader overlay */}
 			{!assetsReady && (
 				<ThemedLoader progress={assetsProgress} done={assetsReady} />
+			)}
+			{/* Open Invitation overlay (after assets ready, before opening) */}
+			{assetsReady && !invitationOpened && (
+				<OpenInvitation
+					name={name}
+					event={event}
+					couple={couple}
+					onOpen={openInvitation}
+				/>
 			)}
 			{/* Toast */}
 			{showToast && (
@@ -486,21 +517,23 @@ function App() {
 			</audio>
 
 			{/* Audio control button */}
-			<button
-				type="button"
-				className={`audio-control ${isAudioPlaying ? "playing" : "paused"}`}
-				onClick={toggleAudio}
-				aria-label={isAudioPlaying ? "Pause music" : "Play music"}
-				aria-pressed={isAudioPlaying}
-			>
-				<span aria-hidden className="icon" />
-				<span className="sr-only">
-					{isAudioPlaying ? "Pause music" : "Play music"}
-				</span>
-			</button>
+			{invitationOpened && (
+				<button
+					type="button"
+					className={`audio-control ${isAudioPlaying ? "playing" : "paused"}`}
+					onClick={toggleAudio}
+					aria-label={isAudioPlaying ? "Pause music" : "Play music"}
+					aria-pressed={isAudioPlaying}
+				>
+					<span aria-hidden className="icon" />
+					<span className="sr-only">
+						{isAudioPlaying ? "Pause music" : "Play music"}
+					</span>
+				</button>
+			)}
 
 			{/* Swipe down guide (first page only) */}
-			{currentPage === 0 && (
+			{invitationOpened && currentPage === 0 && (
 				<SwipeDownGuide visible={showSwipeGuide} message="Geser ke bawah" />
 			)}
 

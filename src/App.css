@@ -112,6 +112,97 @@ body {
 	width: 100% !important;
 }
 
+/* Invitation Open Overlay */
+.invite-overlay {
+	/* Reset UA <dialog> positioning and size */
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	transform: none !important;
+	margin: 0 !important;
+	width: 100vw !important;
+	height: 100vh !important;
+	inset: 0 !important;
+
+	z-index: 1500;
+	border: 0;
+	padding: 0;
+	background: rgba(245, 237, 225, 0.9);
+	backdrop-filter: blur(1px);
+	display: grid;
+	place-items: center;
+}
+/* Remove default dimming of dialog backdrop; we craft our own */
+.invite-overlay::backdrop { background: transparent; }
+.invite-card {
+	position: relative;
+	width: min(86%, 380px);
+	background: #f9f3e7;
+	border-radius: 10px;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+	border: 1px solid #e8dcc7;
+	padding: 34px 18px 22px; /* extra top to clear stamp */
+	transform: rotate(-0.8deg);
+}
+.invite-content {
+	text-align: center;
+}
+.invite-heading {
+	font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+	font-size: 28px;
+	font-weight: 700;
+	color: #8b5e34;
+	margin: 6px 0 2px;
+}
+.invite-couple {
+	margin: 2px 0 10px;
+	font-size: 18px;
+	font-weight: 800;
+	color: #5b4634;
+	letter-spacing: 0.02em;
+}
+.invite-sub {
+	margin: 0;
+	color: #6b5b4b;
+	font-size: 12px;
+}
+.invite-name {
+	margin: 2px 0 8px;
+	font-size: 18px;
+	font-weight: 800;
+	color: #5b4634;
+}
+.invite-event {
+	margin: 0 0 16px;
+	font-size: 13px;
+	color: #6b5b4b;
+}
+.invite-card .loader-stamp {
+	width: 140px;
+	left: -8px;
+	top: -16px;
+}
+.invite-button {
+	display: inline-block;
+	padding: 10px 16px;
+	border-radius: 999px;
+	border: 1px dashed #c2a580;
+	background: radial-gradient(circle at 30% 30%, #ffe9cc, #f6d8b0 60%, #e7c498 100%);
+	color: #5b4634;
+	font-weight: 800;
+	letter-spacing: 0.02em;
+	cursor: pointer;
+	box-shadow: 0 6px 16px rgba(0,0,0,0.15), inset 0 1px 3px rgba(255,255,255,.6);
+	transition: transform .15s ease, box-shadow .2s ease;
+}
+.invite-button:hover { transform: scale(1.04); }
+.invite-button:active { transform: scale(0.98); box-shadow: inset 0 4px 10px rgba(0,0,0,.14); }
+.invite-note {
+	margin-top: 10px;
+	font-size: 11px;
+	color: #7b6a58;
+}
+
 .pages-container {
 	height: 500vh; /* 5 pages × 100vh each */
 	width: 100%;

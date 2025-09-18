@@ -5,7 +5,6 @@ import leafTopRight from "../assets/1/1. DAUN_ATAS KANAN.webp";
 import leafTopLeft from "../assets/1/1. DAUN_ATAS KIRI.webp";
 import leafBottomRight from "../assets/1/1. DAUN_BAWAH KANAN.webp";
 import leafBottomLeft from "../assets/1/1. DAUN_BAWAH KIRI.webp";
-import stamp from "../assets/1/3. STAMP_1.webp";
 
 type Props = {
 	progress: number; // 0–100
@@ -40,7 +39,6 @@ export default function ThemedLoader({ progress, done }: Props) {
 
 			{/* Center card with stamp */}
 			<div className="loader-card">
-				<img src={stamp} alt="" className="loader-stamp" />
 				<div className="loader-content">
 					<p className="loader-title">The Wedding</p>
 					<div className="loader-progress" aria-hidden>
