@@ -13,7 +13,7 @@ type Props = {
 export default function OpenInvitation({
 	name = "Tamu",
 	event = "Akad & Resepsi",
-	couple = "Erica & Abim",
+	couple = "Erica & Abi",
 	onOpen,
 }: Props) {
 	return (
