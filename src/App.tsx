@@ -521,7 +521,7 @@ function App() {
 						<div className="relative w-3/4 mx-auto">
 							<img src={page1_3} alt="Stamp" />
 							<div className="absolute inset-0 flex flex-col items-center justify-center p-3 rotate-[-2deg]">
-								<div>{name}</div>
+								<div className="bold text-xl">{name}</div>
 								<div>{event}</div>
 							</div>
 						</div>
