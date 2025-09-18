@@ -651,7 +651,7 @@ function App() {
 									target="_blank"
 									rel="noopener noreferrer"
 								>
-									<div className="relative mx-auto w-[350px]">
+									<div className="relative z-10 mx-auto w-[350px]">
 										<img
 											src={page3_11}
 											alt=""
@@ -741,7 +741,7 @@ function App() {
 									target="_blank"
 									rel="noopener noreferrer"
 								>
-									<div className="relative mx-auto w-[350px]">
+									<div className="relative z-10 mx-auto w-[350px]">
 										<img
 											src={page3_11}
 											alt=""
